@@ -48,9 +48,11 @@ function observador() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       console.log('Existe usuario activo');
+      aparece()
       // User is signed in.
       var displayName = user.displayName;
       var email = user.email;
+      console.log(email); 
       var emailVerified = user.emailVerified;
       var photoURL = user.photoURL;
       var isAnonymous = user.isAnonymous;
@@ -66,3 +68,23 @@ function observador() {
 }; 
 observador(); 
 
+function aparece() {
+  const contenido = document.getElementById('contenido');
+  contenido.innerHTML = `
+  <p>¡Bienvenido!</p>
+  <button onclick="cerrar()">Cerrar Sesión</button>
+  `; 
+}
+
+const cerrar = () => {
+  firebase.auth().signOut()
+  .then(function(){
+    console.log('Saliendo...')
+  })
+  .catch(function(error){
+    console.log(error)
+  })
+  contenido.style.display = 'none'
+}; 
+ 
+ 
