@@ -4,9 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCaSZCOTrO0WcdvI7sCVPNE5p6eiGj7tB4",
+    authDomain: "petbook-cbdd2.firebaseapp.com",
+    databaseURL: "https://petbook-cbdd2.firebaseio.com",
+    projectId: "petbook-cbdd2",
+    storageBucket: "petbook-cbdd2.appspot.com",
+    messagingSenderId: "158794772915"
+  };
+  firebase.initializeApp(config);
+</script>
   <title>Document</title>
 </head>
 <body>
-  <script type="module" src="main.js"></script>
+  <div class="log">
+    <form class="sign-in">
+      <h2>Registrarse</h2>
+      <input id="usser" type="text" placeholder="Elige tu usuario">
+      <input id="email" type="email" placeholder="Ingresa e-mail">
+      <input id="password" type="password" placeholder="Ingresa contraseña">
+      <input id= "btn-sign-up" type="button" value="registrar">
+    </form>
+    <form class="log-in">
+      <h2>Iniciar Sesión</h2>
+      <input id="email2" type="email" placeholder="Ingresa e-mail">
+      <input id="password2" type="password" placeholder="Ingresa contraseña">
+      <input id= "btn-log-up" type="button" value="Iniciar">
+    </form>  
+      <div id="contenido">
+        
+      </div>
+    
+</div>
+<script type="module" src="main.js"></script>
 </body>
 </html>
