@@ -1,19 +1,30 @@
 import { signUp } from './lib/sigIn.js';
 import { logIn } from './lib/logIn.js';
+import { observer } from './lib/observer.js'; 
 
 const btnSigUp = document.getElementById("btn-sign-up");
-btnSigUp.addEventListener('click', () => {
+btnSigUp.addEventListener('click', event => {
+  event.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   signUp(email, password);
 })
 
 const btnLogIn = document.getElementById("btn-log-up");
-btnLogIn.addEventListener('click', () => {
+btnLogIn.addEventListener('click', event => {
+  event.preventDefault();
  const email2 = document.getElementById("email2").value;
  const password2 = document.getElementById("password2").value;
    logIn(email2, password2);
 })
+// const btnGoogle = document.getElementById("google-button");
+// btnGoogle.addEventListener('click', event => {
+//   event.preventDefault();
+//   loginWithGoogle();
+// });
+
+observer();
+
 
 // Ordenando código
 // const signIn = () => {
@@ -64,6 +75,16 @@ btnLogIn.addEventListener('click', () => {
   //         console.log(error)
   //     })
   // }
+
+  // const signOut = () => {
+  //   firebase.auth().signOut()
+  //     .then(element => {
+  //       location.href('../index.html');
+  //     }).catch(error => {
+  //       console.log('Error al cerrar sesión');
+  //     });
+  // }
+
   // const cerrando = document.getElementById("cerrando");
   // cerrando.addEventListener('click', () => {
   //     cerrar();

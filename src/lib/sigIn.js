@@ -1,6 +1,9 @@
 export const signUp = (email, password) => {
     // event.preventDefault();
     firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then( () => {
+      check();
+    })
     .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
@@ -9,6 +12,18 @@ export const signUp = (email, password) => {
     });
   
   }
+const check = () => {
+  var user = firebase.auth().currentUser;
+
+user.sendEmailVerification().then(function() {
+  console.log("envindo correo");
+  // Email sent.
+}).catch(function(error) {
+  // An error happened.
+  console.log(error);
+});
+}
+
 
 // export const logIn = (email, password) => {
 
