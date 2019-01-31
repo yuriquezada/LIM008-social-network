@@ -5,20 +5,46 @@
     box-sizing: border-box;
   }
 body{
-    background:#DEDEDE;
-    display: flex;
-    min-height: 100vh;
+  margin: 0;
+  background:rgb(74, 152, 255);
+  font-family: sans-serif;
  }
- sign-in{
+.register{
+  width: 95%;
+  max-width: 500px;
   margin: auto;
-   width: 50%;
-   max-width: 500px;
-   background: #f3f3f3;
-   padding: 30px;
-   border: 1px solid rgb(0,0,0,0.2);
- }
+}
+.button{
+  background: rgb(5, 151, 170);
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 15px;
+}
+.button:hover{
+  cursor: pointer;
+  background: rgb(2, 110, 124);
+}
+.google{
+  background: rgb(240, 240, 240);
+  color: #333333;
+}
+.google:hover{
+  background: rgb(216, 216, 216);
+}
+img{
+  vertical-align: middle; 
+  margin-right: 10px;
+}
  input{
-   display: block;
-   padding: 10px;
-   width: 100%;
+  color: aliceblue;
+  background-color: rgba(74, 152, 255, 0);
+  border: 0;
+  border-bottom: 2px solid rgb(255, 255, 255, 0.1);
+ }
+ .space{
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
  }

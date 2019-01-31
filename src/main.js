@@ -1,6 +1,4 @@
-import { signUp } from './lib/sigIn.js';
-import { logIn } from './lib/logIn.js';
-import { observer } from './lib/observer.js'; 
+import { logIn, signUp, observer, signOut  } from './lib/firebase.js';
 
 const btnSigUp = document.getElementById("btn-sign-up");
 btnSigUp.addEventListener('click', event => {
@@ -17,6 +15,13 @@ btnLogIn.addEventListener('click', event => {
  const password2 = document.getElementById("password2").value;
    logIn(email2, password2);
 })
+
+// const btnLogOut = document.getElementById("sign-out");
+// btnLogOut.addEventListener('click', event => {
+//   event.preventDefault();
+//   signOut();
+//   btnLogOut.style.display = 'none';
+// })
 // const btnGoogle = document.getElementById("google-button");
 // btnGoogle.addEventListener('click', event => {
 //   event.preventDefault();
