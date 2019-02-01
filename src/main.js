@@ -1,15 +1,28 @@
 // Este es el punto de entrada de tu aplicacion
 
 import { signUp } from './lib/index.js';
+import { logIn, observer } from './lib/logIn.js';
+
 
 const btnSignUp = document.getElementById('btn-sign-up'); 
 
 btnSignUp.addEventListener('click', () => {
+    event.preventDefault();  
  const email = document.getElementById('email').value;
  const password = document.getElementById('password').value;
  signUp(email, password);
 }); 
 
+const btnLogIn = document.getElementById("btn-log-up");
+
+btnLogIn.addEventListener('click', event => {
+  event.preventDefault();
+ const email2 = document.getElementById("email2").value;
+ const password2 = document.getElementById("password2").value;
+   logIn(email2, password2);
+}); 
+
+observer();
 // const btnInicio = document.getElementById('iniciar-sesion'); 
 
 // btnInicio.addEventListener('click', () => {
