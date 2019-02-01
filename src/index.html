@@ -23,24 +23,25 @@
 <body>
   <div class="log">
       <form class="register">
-        <h2>Registrarse</h2>
-        <input class= "space" id="usser" type="text" placeholder="Elige tu usuario">
-        <input class= "space" id="email" type="email" placeholder="Ingresa e-mail">
-        <input class= "space" id="password" type="password" placeholder="Ingresa contraseña">
-        <button class="button space" id= "btn-sign-up">Registrar</button>
+          <img src="imgs/logo.png" alt="pets">
+          <input class= "space" id="email2" type="email" placeholder="Ingresa e-mail">
+          <input class= "space" id="password2" type="password" placeholder="Ingresa contraseña">
+          <div id="message"><P>Usuario o contraseña incorrectos</P></div>
+          <button class="button space" id= "btn-log-up">Iniciar sesión</button>
+          <button class="button google space" id= "google-button"><img src="imgs/google-logo.png" alt="Google">Iniciar sesión con Google</button>
+          <img src="imgs/pets.png" alt="pets">
+          <p>¿No tienes cuenta? <a href="#/registrate">Regístrate</a></p>  
       </form>
       <form class="register">
-        <h2>Iniciar Sesión</h2>
-        <input class= "space" id="email2" type="email" placeholder="Ingresa e-mail">
-        <input class= "space" id="password2" type="password" placeholder="Ingresa contraseña">
-        <button class="button space" id= "btn-log-up">Iniciar sesión</button>
-        <button class="button google space" id= "google-button"><img src="imgs/google-logo.png" alt="Google">Iniciar sesión con Google</button>
-      </form>  
-        <div id="contenido">
-          
-        </div>
-    
-</div>
+        <input class= "space" id="usser" type="text" placeholder="Elige tu usuario" required>
+        <input class= "space" id="email" type="email" placeholder="Ingresa e-mail" required>
+        <input class= "space" id="password" type="password" placeholder="Ingresa contraseña" required>
+        <button class="button space" id= "btn-sign-up">Registrar</button>
+      </form>
+      <div id="contenido">
+            
+      </div> 
+  </div>
 <script type="module" src="main.js"></script>
 </body>
 </html>

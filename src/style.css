@@ -6,16 +6,30 @@
   }
 body{
   margin: 0;
-  background:rgb(74, 152, 255);
+  background:#62BBC1;
   font-family: sans-serif;
  }
+
+a{
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+#message{
+  display: none;
+  color: red;
+  margin-bottom: 10px;
+}
 .register{
+  color:white;
   width: 95%;
   max-width: 500px;
   margin: auto;
+  text-align: center;
 }
 .button{
-  background: rgb(5, 151, 170);
+  background: #1698A0;
   color: white;
   border: 0;
   border-radius: 4px;
@@ -25,6 +39,9 @@ body{
 .button:hover{
   cursor: pointer;
   background: rgb(2, 110, 124);
+}
+.button:focus{
+  outline: none;
 }
 .google{
   background: rgb(240, 240, 240);
@@ -37,13 +54,17 @@ img{
   vertical-align: middle; 
   margin-right: 10px;
 }
- input{
-  color: aliceblue;
+input{
+  color: white;
   background-color: rgba(74, 152, 255, 0);
   border: 0;
   border-bottom: 2px solid rgb(255, 255, 255, 0.1);
  }
+input:focus{
+  outline: none;
+}
  .space{
+  font-size: 18px;
   padding: 10px;
   width: 100%;
   margin-bottom: 20px;
