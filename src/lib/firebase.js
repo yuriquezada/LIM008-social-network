@@ -1,6 +1,13 @@
 export const logIn = (email, password) => {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function() {
+      const contenido = document.getElementById('contenido');
+      contenido.innerHTML = `
+      <h1>Bienvenido</h1>
+      <button class="btn-sign-out">Cerrar Sesión</button>
+      `;
+    })
     .catch(function(error) {
         // Handle Errors here.
         let errorCode = error.code;
@@ -43,7 +50,6 @@ export const observer = () => {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             console.log("existe");
-            showDocument();
             //Poner aquí la variable que contega el html
           // User is signed in.
           var displayName = user.displayName;
@@ -61,12 +67,6 @@ export const observer = () => {
         }
       });
   }
-  const showDocument = () => {
-    const contenido = document.getElementById("contenido");
-          contenido.innerHTML=`
-          <p>Bienvenido</p>
-          <input id= "sign-out" type="button" value="Cerrar Sesión">`;
-      }
 
 export const googleLogIn = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -77,7 +77,11 @@ export const googleLogIn = () => {
     var user = result.user;
     // ...
     console.log('ingreso con google')
-    document.getElementById('contenido').innerHTML = 'Ingreso con Google';
+    const contenido = document.getElementById('contenido');
+      contenido.innerHTML = `
+      <h1>Bienvenido</h1>
+      <button class="btn-sign-out">Cerrar Sesión</button>
+      `;
   }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -90,4 +94,13 @@ export const googleLogIn = () => {
     console.log('no ingreso')
   });
 } 
- 
+
+export const signOutPage = () => {
+  firebase.auth().signOut()
+  .then( function() {
+    console.log('Saliendo...')
+  })
+  .catch( function(error) {
+    console.log(error)
+  })
+}
