@@ -7,8 +7,33 @@ export const logIn = (email, password) => {
         // alert("Usuario o contraseña incorrectos");
         let errorCode = error.code;
         let errorMessage = error.message;
-        // ...
+        alert('Error: ' + errorCode);
+        alert('Error: ' + errorMessage);
+        // window.location.hash='#/home';
       });
+  }
+
+ export const checkIn = () => {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        // var displayName = user.displayName;
+        // var email = user.email;
+        // var emailVerified = user.emailVerified;
+        // var photoURL = user.photoURL;
+        // var isAnonymous = user.isAnonymous;
+        // var uid = user.uid;
+        // var providerData = user.providerData;
+        const user = firebase.auth().currentUser;
+      if (user !== null) {
+        const email = user.email;
+        window.location.hash = '#/home';
+        console.log('sesion iniciada');
+        };
+      } else {
+        console.log('usuario no registrado');
+      }
+    });
   }
 
 export const signUp = (email, password) => {
@@ -64,6 +89,8 @@ export const googleLogIn = () => {
       console.log('no ingreso')
     });
   } 
+
+
   
 // export const observer = () => {
 //     firebase.auth().onAuthStateChanged(function(user) {

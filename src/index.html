@@ -1,50 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCaSZCOTrO0WcdvI7sCVPNE5p6eiGj7tB4",
-      authDomain: "petbook-cbdd2.firebaseapp.com",
-      databaseURL: "https://petbook-cbdd2.firebaseio.com",
-      projectId: "petbook-cbdd2",
-      storageBucket: "petbook-cbdd2.appspot.com",
-      messagingSenderId: "158794772915"
-    };
-    firebase.initializeApp(config);
-  </script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script> 
+  <script src="firebase/firebase-config.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-firestore.js"></script> -->
+
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script> -->
   <title>Document</title>
 </head>
-
 <body>
-  <div class="log">
-      <form class="register">
-          <img src="imgs/logo.png" alt="pets">
-          <input class= "space" id="email2" type="email" placeholder="Ingresa e-mail">
-          <input class= "space" id="password2" type="password" placeholder="Ingresa contraseña">
-          <div id="message"><P>Usuario o contraseña incorrectos</P></div>
-          <button class="button space" id= "btn-log-up">Iniciar sesión</button>
-          <button class="button google space" id= "google-button"><img src="imgs/google-logo.png" alt="Google">Iniciar sesión con Google</button>
-          <img src="imgs/pets.png" alt="pets">
-          <p>¿No tienes cuenta? <a href="#/registrate">Regístrate</a></p>  
-      </form>
-      <form class="register">
-        <input class= "space" id="usser" type="text" placeholder="Elige tu usuario" required>
-        <input class= "space" id="email" type="email" placeholder="Ingresa e-mail" required>
-        <input class= "space" id="password" type="password" placeholder="Ingresa contraseña" required>
-        <button class="button space" id= "btn-sign-up">Registrar</button>
-      </form>
-      <div id="contenido">
-            
-      </div> 
-  </div>
-<script type="module" src="main.js"></script>
+  <div id="container"></div>
+  <script src='main.js' type='module'></script>
 </body>
-
 </html>

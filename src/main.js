@@ -1,26 +1,43 @@
-import { logIn, signUp, googleLogIn  } from './lib/firebase.js';
+import { changeTmp } from './lib/controller.js';
+import { logIn, checkIn, signUp, googleLogIn } from './lib/firebase-functions.js';
+export { btnLogIn, btnRegister, btnGoogle };
 
-const btnSigUp = document.getElementById("btn-sign-up");
-btnSigUp.addEventListener('click', event => {
-  event.preventDefault();
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+window.addEventListener('load', changeTmp(window.location.hash))
+if (("onhashchange" in window)) window.onhashchange = () => changeTmp(window.location.hash);
+
+const btnLogIn = () => {
+  const email2 = element.querySelector('#email2').value;
+  const password2 = element.querySelector('#password2').value;
+  logIn(email2, password2);
+  checkIn();
+};
+
+const btnRegister = () => {
+  const email = element.querySelector("#email").value;
+  const password = element.querySelector("#password").value;
   signUp(email, password);
-})
+};
 
-const btnLogIn = document.getElementById("btn-log-up");
-btnLogIn.addEventListener('click', event => {
-  event.preventDefault();
- const email2 = document.getElementById("email2").value;
- const password2 = document.getElementById("password2").value;
-   logIn(email2, password2);
-})
+const btnGoogle = () => {
+  googleLogIn();
+};
 
-const btnGoogle = document.getElementById("google-button");
- btnGoogle.addEventListener('click', event => {
-   event.preventDefault();
-   googleLogIn();
- });
+
+
+ //COMO ESTABA ANTES EL BOTON ENTRAR CON GOOGLE BB
+
+
+// const btnRegister = document.getElementById("btn-sign-up");
+// btnRegister.addEventListener('click', event => {
+//   event.preventDefault();
+//   const email = document.getElementById("email").value;
+//   const password = document.getElementById("password").value;
+//   signUp(email, password);
+// })
+
+
+
+
 // const btnLogOut = document.getElementById("sign-out");
 // btnLogOut.addEventListener('click', event => {
 //   event.preventDefault();
@@ -64,7 +81,7 @@ const btnGoogle = document.getElementById("google-button");
 //       <p>Bienvenido</p>
 //       <input id= "cerrando" type="submit" value="Cerrar Sesión">`;
 //   }
-  
+
 //   const btnSignIn = document.getElementById("registrarse");
 //    btnSignIn.addEventListener('click', () => {
 //     signIn();
@@ -74,8 +91,8 @@ const btnGoogle = document.getElementById("google-button");
 //     btnLogIn.addEventListener('click', () => {
 //     logIn();
 //     });
-  
-  
+
+
   // const cerrar = () =>{
   //     firebase.auth().signOut()
   //     .then( function(){
