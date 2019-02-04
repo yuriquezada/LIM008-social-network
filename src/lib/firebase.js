@@ -1,13 +1,9 @@
 export const logIn = (email, password) => {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(function() {
-      const contenido = document.getElementById('contenido');
-      contenido.innerHTML = `
-      <h1>Bienvenido</h1>
-      <button class="btn-sign-out">Cerrar Sesión</button>
-      `;
-    })
+    // .then(() => {
+    //   inicio(); 
+    // })
     .catch(function(error) {
         // Handle Errors here.
         let errorCode = error.code;
@@ -42,10 +38,6 @@ user.sendEmailVerification().then(function() {
 });
 }
 
-export const signOut = () => {
-  console.log("saliendo")
-    firebase.auth().signOut()
-  } 
 export const observer = () => {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -70,18 +62,15 @@ export const observer = () => {
 
 export const googleLogIn = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
+  firebase.auth().signInWithPopup(provider).
+  then(function(result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
     // ...
     console.log('ingreso con google')
-    const contenido = document.getElementById('contenido');
-      contenido.innerHTML = `
-      <h1>Bienvenido</h1>
-      <button class="btn-sign-out">Cerrar Sesión</button>
-      `;
+    // inicio();
   }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -91,11 +80,11 @@ export const googleLogIn = () => {
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
     // ...
-    console.log('no ingreso')
+    console.log('no ingreso con google')
   });
 } 
 
-export const signOutPage = () => {
+export const signOut = () => {
   firebase.auth().signOut()
   .then( function() {
     console.log('Saliendo...')
