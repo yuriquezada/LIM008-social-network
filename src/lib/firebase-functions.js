@@ -1,40 +1,40 @@
-export const logIn = (email, password) => {
+export const signIn = (email, password) => {
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .catch(function(error) {
-        // Handle Errors here.
-        document.getElementById("message").style.display = "block";
-        // alert("Usuario o contraseña incorrectos");
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        alert('Error: ' + errorCode);
-        alert('Error: ' + errorMessage);
-        // window.location.hash='#/home';
-      });
-  }
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .catch(function (error) {
+      // Handle Errors here.
+      document.getElementById("message").style.display = "block";
+      // alert("Usuario o contraseña incorrectos");
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      alert('Error: ' + errorCode);
+      alert('Error: ' + errorMessage);
+      // window.location.hash='#/home';
+    });
+}
 
- export const checkIn = () => {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        // var displayName = user.displayName;
-        // var email = user.email;
-        // var emailVerified = user.emailVerified;
-        // var photoURL = user.photoURL;
-        // var isAnonymous = user.isAnonymous;
-        // var uid = user.uid;
-        // var providerData = user.providerData;
-        const user = firebase.auth().currentUser;
+export const checkIn = () => {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      // var displayName = user.displayName;
+      // var email = user.email;
+      // var emailVerified = user.emailVerified;
+      // var photoURL = user.photoURL;
+      // var isAnonymous = user.isAnonymous;
+      // var uid = user.uid;
+      // var providerData = user.providerData;
+      const user = firebase.auth().currentUser;
       if (user !== null) {
         const email = user.email;
         window.location.hash = '#/home';
         console.log('sesion iniciada');
-        };
-      } else {
-        console.log('usuario no registrado');
-      }
-    });
-  }
+      };
+    } else {
+      console.log('usuario no registrado');
+    }
+  });
+}
 
 export const signUp = (email, password) => {
   // event.preventDefault();
@@ -53,13 +53,13 @@ export const signUp = (email, password) => {
 const check = () => {
   var user = firebase.auth().currentUser;
 
-user.sendEmailVerification().then(function() {
-  console.log("enviando correo");
-  // Email sent.
-}).catch(function(error) {
-  // An error happened.
-  console.log(error);
-});
+  user.sendEmailVerification().then(function () {
+    console.log("enviando correo");
+    // Email sent.
+  }).catch(function (error) {
+    // An error happened.
+    console.log(error);
+  });
 }
 
 export const signOut = () => {
@@ -67,7 +67,7 @@ export const signOut = () => {
     firebase.auth().signOut()
   } 
 
-export const googleLogIn = () => {
+export const signInGoogle = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -88,36 +88,4 @@ export const googleLogIn = () => {
       // ...
       console.log('no ingreso')
     });
-  } 
-
-
-  
-// export const observer = () => {
-//     firebase.auth().onAuthStateChanged(function(user) {
-//         if (user) {
-//             console.log("existe");
-//             showDocument();
-//             //Poner aquí la variable que contega el html
-//           // User is signed in.
-//           var displayName = user.displayName;
-//           var email = user.email;
-//           var emailVerified = user.emailVerified;
-//           var photoURL = user.photoURL;
-//           var isAnonymous = user.isAnonymous;
-//           var uid = user.uid;
-//           var providerData = user.providerData;
-//           // ...
-//         } else {
-//           console.log("no existe usuario activo");
-//           // User is signed out.
-//           // ...
-//         }
-//       });
-//   }
-  // const showDocument = () => {
-  //   const contenido = document.getElementById("contenido");
-  //         contenido.innerHTML=`
-  //         <p>Bienvenido</p>
-  //         <input id= "sign-out" type="button" value="Cerrar Sesión">`;
-  //     }
- 
+  }
