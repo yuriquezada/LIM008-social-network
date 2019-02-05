@@ -1,9 +1,11 @@
+import { inicio } from './tempString.js';
+
 export const logIn = (email, password) => {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
-    // .then(() => {
-    //   inicio(); 
-    // })
+    .then(() => {
+     inicio(); 
+     })
     .catch(function(error) {
         // Handle Errors here.
         document.getElementById("message").style.display = "block";
@@ -54,6 +56,7 @@ export const googleLogIn = () => {
       var user = result.user;
       // ...
       console.log('ingreso con google')
+      inicio(); 
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;

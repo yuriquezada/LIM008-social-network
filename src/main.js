@@ -1,47 +1,33 @@
-import { logIn, signUp, googleLogIn, signOut } from './lib/firebase.js';
+// import { googleLogIn } from './lib/firebase.js';
+import { pageSignIn, pageSignUp  } from './lib/tempString.js';
 
-const btnSigUp = document.getElementById("btn-sign-up");
-btnSigUp.addEventListener('click', event => {
-  event.preventDefault();
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  signUp(email, password);
-})
+pageSignIn();
+pageSignUp(); 
 
-const btnLogIn = document.getElementById("btn-log-up");
-btnLogIn.addEventListener('click', event => {
-  event.preventDefault();
- const email2 = document.getElementById("email2").value;
- const password2 = document.getElementById("password2").value;
-   logIn(email2, password2); 
-   inicio();
-})
 
-const btnGoogle = document.getElementById("google-button");
- btnGoogle.addEventListener('click', event => {
-   event.preventDefault();
-   googleLogIn();
-   inicio();
- });
+// const btnSigUp = document.getElementById("btn-sign-up");
+// btnSigUp.addEventListener('click', event => {
+//   event.preventDefault();
+//   const email = document.getElementById("email").value;
+//   const password = document.getElementById("password").value;
+//   signUp(email, password);
+// })
 
- const inicio = () => {
-   const bienvenido = `
-   <h1>Bienvenido</h1>
-   <button class='btn-signout'>Cerrar Sesión</button>
-   `;
-   const divElem = document.createElement('div');
-   divElem.setAttribute('id', 'bienvenido'); 
-   divElem.innerHTML = bienvenido;
-   divElem
-    .querySelector('.btn-signout')
-    .addEventListener('click', () => { 
-      signOut();     
-      divElem.style.display='none';       
-    });
+// const btnLogIn = document.getElementById("btn-log-up");
+// btnLogIn.addEventListener('click', event => {
+//   event.preventDefault();
+//  const email2 = document.getElementById("email2").value;
+//  const password2 = document.getElementById("password2").value;
+//    logIn(email2, password2); 
+//    document.getElementById('container').style.display='none';
+// })
 
-    const contenido = document.getElementById('contenido');
-    contenido.appendChild(divElem); 
-  }; 
+// const btnGoogle = document.getElementById("google-button");
+//  btnGoogle.addEventListener('click', event => {
+//    event.preventDefault();
+//    googleLogIn();
+//    document.getElementById('container').style.display='none';
+//  });
 
 // const btnLogOut = document.querySelectorAll('.btn-sign-out');
 //  btnLogOut.addEventListener('click', event => {
