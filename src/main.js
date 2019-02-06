@@ -1,9 +1,21 @@
 // import { googleLogIn } from './lib/firebase.js';
-import { pageSignIn  } from './lib/tempString.js';
+import { initRouterPetbook } from './route.js';
 
-pageSignIn();
+const inicializa = () => {
+  var config = {
+    apiKey: "AIzaSyCaSZCOTrO0WcdvI7sCVPNE5p6eiGj7tB4",
+    authDomain: "petbook-cbdd2.firebaseapp.com",
+    databaseURL: "https://petbook-cbdd2.firebaseio.com",
+    projectId: "petbook-cbdd2",
+    storageBucket: "petbook-cbdd2.appspot.com",
+    messagingSenderId: "158794772915"
+  };
+  firebase.initializeApp(config);
+  initRouterPetbook();
+}
 
-
+window.addEventListener('load', inicializa)
+// window.onload = inicializa()
 // const btnSigUp = document.getElementById("btn-sign-up");
 // btnSigUp.addEventListener('click', event => {
 //   event.preventDefault();

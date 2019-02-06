@@ -1,15 +1,12 @@
-import { inicio } from './tempString.js';
+import { home } from './tempString.js';
 
 export const logIn = (email, password, closeConteiner) => {
 
-  closeConteiner = () => {
-   document.getElementById('container').style.display='none';
-  }
+
 
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
-     inicio(); 
-     closeConteiner();
+      //home();
      })
     .catch(function(error) {
         // Handle Errors here.
@@ -28,7 +25,7 @@ export const signUp = (email, password) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then( () => {
       check();
-      inicio(); 
+      home(); 
 
     })
     .catch(function (error) {
@@ -66,7 +63,7 @@ export const googleLogIn = () => {
       var user = result.user;
       // ...
       console.log('ingreso con google')
-      inicio(); 
+      home(); 
       document.getElementById('container').style.display='none';
     }).catch(function(error) {
       // Handle Errors here.

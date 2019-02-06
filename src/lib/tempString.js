@@ -1,5 +1,6 @@
 import { logIn, signOut, googleLogIn, signUp } from './firebase.js';
-export const inicio = () => {
+import { changeHash } from '../route.js';
+export const home = () => {
     const bienvenido = `
     <h1>Bienvenido</h1>
     <button class='btn-signout'>Cerrar Sesión</button>
@@ -15,7 +16,7 @@ export const inicio = () => {
         document.getElementById('container').style.display='block';
      });
  
-     const contenido = document.getElementById('contenido');
+     const contenido = document.getElementById('conteiner');
      contenido.appendChild(divElem); 
    }; 
 
@@ -51,13 +52,12 @@ export const pageSignIn = () => {
     .querySelector('#registrate')
     .addEventListener('click', event => {
         event.preventDefault();
-        pageSignUp();
-        element.style.display='none';
+        changeHash('/signup')
         });
 
-     const container = document.getElementById('container');
-     container.appendChild(element); 
-     
+    //  const container = document.getElementById('container');
+    //  container.appendChild(element); 
+     return element; 
 
     // const btnSignIn = element.querySelector('#btn-log-in');
     // btnSignIn.addEventListener('click', () => {
@@ -72,7 +72,7 @@ export const pageSignIn = () => {
     //return template;
   };
 
-const pageSignUp = () => {
+export const pageSignUp = () => {
     const template = `<form class="register">
                       <img src="imgs/logo.png" alt="pets">
                       <input class= "space" id="usser" type="text" placeholder="Elige tu usuario" required>
@@ -100,7 +100,5 @@ const pageSignUp = () => {
     //   event.preventDefault();
     //   btnRegister();
     // });
-
-    const container = document.getElementById('container');
-     container.appendChild(element2);
+      return element2;
 };
