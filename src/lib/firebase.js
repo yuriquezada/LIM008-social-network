@@ -1,17 +1,24 @@
 import { inicio } from './tempString.js';
 
-export const logIn = (email, password) => {
+export const logIn = (email, password, closeConteiner) => {
+
+  closeConteiner = () => {
+   document.getElementById('container').style.display='none';
+  }
 
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
      inicio(); 
+     closeConteiner();
      })
     .catch(function(error) {
         // Handle Errors here.
-        document.getElementById("message").style.display = "block";
+        document.querySelector("#message").style.display = "block";
         // alert("Usuario o contraseña incorrectos");
         let errorCode = error.code;
         let errorMessage = error.message;
+        console.log(errorCode)
+        console.log(errorMessage)
         // ...
       });
   }
@@ -21,9 +28,12 @@ export const signUp = (email, password) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then( () => {
       check();
+      inicio(); 
+
     })
     .catch(function (error) {
       // Handle Errors here.
+      document.getElementById("message2").style.display = "block";
       var errorCode = error.code;
       var errorMessage = error.message;
       // ...
@@ -57,6 +67,7 @@ export const googleLogIn = () => {
       // ...
       console.log('ingreso con google')
       inicio(); 
+      document.getElementById('container').style.display='none';
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;

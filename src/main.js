@@ -1,8 +1,7 @@
 // import { googleLogIn } from './lib/firebase.js';
-import { pageSignIn, pageSignUp  } from './lib/tempString.js';
+import { pageSignIn  } from './lib/tempString.js';
 
 pageSignIn();
-pageSignUp(); 
 
 
 // const btnSigUp = document.getElementById("btn-sign-up");
