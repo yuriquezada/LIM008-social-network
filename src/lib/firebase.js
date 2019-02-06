@@ -53,7 +53,7 @@ user.sendEmailVerification().then(function() {
 }
 
 export const signOut = () => {
-  console.log("saliendo")
+  console.log("saliendo...")
     firebase.auth().signOut()
   } 
 
