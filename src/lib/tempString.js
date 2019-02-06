@@ -39,14 +39,13 @@ export const pageSignIn = () => {
           const email2 = document.querySelector("#email2").value;
           const password2 = document.querySelector("#password2").value;
             logIn(email2, password2); 
-            document.getElementById('container').style.display='none';
+            // 
          });
     element 
     .querySelector('#google-button')
     .addEventListener('click', event => {
         event.preventDefault();
         googleLogIn();
-        document.getElementById('container').style.display='none';
         });
 
      const container = document.getElementById('container');
@@ -70,6 +69,7 @@ export const pageSignUp = () => {
                       <input class= "space" id="usser" type="text" placeholder="Elige tu usuario" required>
                       <input class= "space" id="email" type="email" placeholder="Ingresa e-mail" required>
                       <input class= "space" id="password" type="password" placeholder="Ingresa contraseña" required>
+                      <div id="message2"><P>No se ingreso usuario, e-mail o contraseña</P></div>
                       <button class="button space" id= "btn-sign-up">Registrar</button>
                       </form>`
     const element2 = document.createElement('div');
