@@ -1,26 +1,139 @@
-// Este es el punto de entrada de tu aplicacion
-import { changeTmp } from './lib/controller.js';
-import {signIn, checkIn, signUp, signInGoogle} from './lib/firebase-functions';
-export { valuesSignIn , valuesSignUp, btnGoogle};
+// import { googleLogIn } from './lib/firebase.js';
+import { initRouterPetbook } from './route.js';
 
-window.addEventListener('load', changeTmp(window.location.hash))
-if (("onhashchange" in window)) window.onhashchange = () => changeTmp(window.location.hash);
-
-
-const valuesSignIn = () => {
-    const emailSignIn= element.querySelector('#email-sign-in').value;
-    const passwordSignIn = element.querySelector('#password-sign-in').value;
-    signIn(emailSignIn, passwordSignIn);
-    checkIn();
-};
-
-const valuesSignUp = () => {
-    const emailSignUp= element.querySelector('#email-sign-up').value;
-    const passwordSignUp = element.querySelector('#password-sign-up').value;
-    signUp(emailSignUp, passwordSignUp);
-};
-
-const btnGoogle = () => {
-    signInGoogle();
+const inicializa = () => {
+  var config = {
+    apiKey: "AIzaSyCaSZCOTrO0WcdvI7sCVPNE5p6eiGj7tB4",
+    authDomain: "petbook-cbdd2.firebaseapp.com",
+    databaseURL: "https://petbook-cbdd2.firebaseio.com",
+    projectId: "petbook-cbdd2",
+    storageBucket: "petbook-cbdd2.appspot.com",
+    messagingSenderId: "158794772915"
   };
+  firebase.initializeApp(config);
+  initRouterPetbook();
+}
+
+window.addEventListener('load', inicializa)
+// window.onload = inicializa()
+// const btnSigUp = document.getElementById("btn-sign-up");
+// btnSigUp.addEventListener('click', event => {
+//   event.preventDefault();
+//   const email = document.getElementById("email").value;
+//   const password = document.getElementById("password").value;
+//   signUp(email, password);
+// })
+
+// const btnLogIn = document.getElementById("btn-log-up");
+// btnLogIn.addEventListener('click', event => {
+//   event.preventDefault();
+//  const email2 = document.getElementById("email2").value;
+//  const password2 = document.getElementById("password2").value;
+//    logIn(email2, password2); 
+//    document.getElementById('container').style.display='none';
+// })
+
+// const btnGoogle = document.getElementById("google-button");
+//  btnGoogle.addEventListener('click', event => {
+//    event.preventDefault();
+//    googleLogIn();
+//    document.getElementById('container').style.display='none';
+//  });
+
+// const btnLogOut = document.querySelectorAll('.btn-sign-out');
+//  btnLogOut.addEventListener('click', event => {
+//   event.preventDefault();
+//    signOut();
+//  })
+
+// observer();
+
+
+
+// Ordenando código
+// const signIn = () => {
+//   const email = document.getElementById("email").value;
+//   const password = document.getElementById("password").value;
+//         firebase.auth().createUserWithEmailAndPassword(email, password)
+//         .catch(function(error) {
+//             // Handle Errors here.
+//             var errorCode = error.code;
+//             var errorMessage = error.message;
+//             // ...
+//         });
+//   }
+
+//   const logIn = () => {
+//     const email2 = document.getElementById("email2").value;
+//     const password2 = document.getElementById("password2").value;
+//     firebase.auth().signInWithEmailAndPassword(email2, password2)
+//     .catch(function(error) {
+//         // Handle Errors here.
+//         var errorCode = error.code;
+//         var errorMessage = error.message;
+//         // ...
+//       });
+//       const contenido = document.getElementById("contenido");
+//       contenido.innerHTML=`
+//       <p>Bienvenido</p>
+//       <input id= "cerrando" type="submit" value="Cerrar Sesión">`;
+//   }
+  
+//   const btnSignIn = document.getElementById("registrarse");
+//    btnSignIn.addEventListener('click', () => {
+//     signIn();
+//     });
+
+//   const btnLogIn = document.getElementById("iniciando");
+//     btnLogIn.addEventListener('click', () => {
+//     logIn();
+//     });
+  
+  
+  // const cerrar = () =>{
+  //     firebase.auth().signOut()
+  //     .then( function(){
+  //         console.log("Sliendo...")
+  //     })
+  //     .catch(function(error){
+  //         console.log(error)
+  //     })
+  // }
+
+  // const signOut = () => {
+  //   firebase.auth().signOut()
+  //     .then(element => {
+  //       location.href('../index.html');
+  //     }).catch(error => {
+  //       console.log('Error al cerrar sesión');
+  //     });
+  // }
+
+  // const cerrando = document.getElementById("cerrando");
+  // cerrando.addEventListener('click', () => {
+  //     cerrar();
+  //     });
+
+  // const observador = () => {
+  //   firebase.auth().onAuthStateChanged(function(user) {
+  //       if (user) {
+  //           console.log("existe");
+  //           iniciando;
+  //           //Poner aquí la variable que contega el html
+  //         // User is signed in.
+  //         var displayName = user.displayName;
+  //         var email = user.email;
+  //         var emailVerified = user.emailVerified;
+  //         var photoURL = user.photoURL;
+  //         var isAnonymous = user.isAnonymous;
+  //         var uid = user.uid;
+  //         var providerData = user.providerData;
+  //         // ...
+  //       } else {
+  //         // User is signed out.
+  //         // ...
+  //       }
+  //     });
+  // }
+  // observador();
 
