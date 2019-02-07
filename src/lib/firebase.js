@@ -1,12 +1,10 @@
-import { home } from './tempString.js';
+import { changeHash } from "../route.js";
 
-export const logIn = (email, password, closeConteiner) => {
-
-
+export const logIn = (email, password) => {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
-      //home();
+      changeHash('/home')
      })
     .catch(function(error) {
         // Handle Errors here.
@@ -25,8 +23,7 @@ export const signUp = (email, password) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then( () => {
       check();
-      home(); 
-
+      changeHash('/home') 
     })
     .catch(function (error) {
       // Handle Errors here.
@@ -52,6 +49,7 @@ user.sendEmailVerification().then(function() {
 export const signOut = () => {
   console.log("saliendo...")
     firebase.auth().signOut()
+    changeHash('/signin')
   } 
 
 export const googleLogIn = () => {
@@ -63,8 +61,8 @@ export const googleLogIn = () => {
       var user = result.user;
       // ...
       console.log('ingreso con google')
-      home(); 
-      document.getElementById('container').style.display='none';
+      changeHash('/home')
+      //document.getElementById('container').style.display='none';
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;

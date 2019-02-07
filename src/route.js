@@ -1,4 +1,6 @@
-import { pageSignIn, pageSignUp } from "./lib/tempString.js";
+import { home } from "./lib/templateHome.js";
+import { pageSignIn } from "./lib/templateSignIn.js";
+import { pageSignUp } from "./lib/templateSignUp.js";
 
 export const changeHash = (nameHash) => {
     window.location.hash = nameHash;
@@ -25,6 +27,9 @@ const changeRouter = (hash) => {
         break;
       case 'signup':
         container.appendChild(pageSignUp());
+        break;
+      case 'home':
+        container.appendChild(home());
         break;
       default:
         const templateSignIn = pageSignIn()
