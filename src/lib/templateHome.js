@@ -1,5 +1,7 @@
 import { signOut } from './firebase.js';
 
+
+
 export const home = () => {
     const viewHome = `
     <header class="menu-arriba color">
@@ -16,11 +18,6 @@ export const home = () => {
       </form>
       <table>
         <tbody id="table">
-          <tr>
-          /aqui va el doc.id :D/
-          <td><button type="button" id="delete">Eliminar</button></td>
-          <td><button type="button" id="edit">Editar</button></td>
-          </tr>
         </tbody>
       </table>
     <footer id="menu-abajo" class="menu-abajo color">
@@ -43,16 +40,5 @@ export const home = () => {
       .addEventListener('click', () => { 
        console.log('si funciono :D')     
      });
-     divElem
-     .querySelector('#delete')
-     .addEventListener('click', () => { 
-      console.log('no se si funciono :S')     
-    });
-    divElem
-      .querySelector('#edit')
-      .addEventListener('click', () => { 
-       console.log('no se si funciono :S')     
-     });
-    
     return divElem; 
    }; 

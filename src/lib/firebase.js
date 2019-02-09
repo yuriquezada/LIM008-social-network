@@ -75,33 +75,51 @@ export const googleLogIn = () => {
       console.log('no ingreso con google')
     });
   } 
+
+//Publicar - eliminar editar
   
-// export const observer = () => {
-//     firebase.auth().onAuthStateChanged(function(user) {
-//         if (user) {
-//             console.log("existe");
-//             showDocument();
-//             //Poner aquí la variable que contega el html
-//           // User is signed in.
-//           var displayName = user.displayName;
-//           var email = user.email;
-//           var emailVerified = user.emailVerified;
-//           var photoURL = user.photoURL;
-//           var isAnonymous = user.isAnonymous;
-//           var uid = user.uid;
-//           var providerData = user.providerData;
-//           // ...
-//         } else {
-//           console.log("no existe usuario activo");
-//           // User is signed out.
-//           // ...
-//         }
-//       });
-//   }
-  // const showDocument = () => {
-  //   const contenido = document.getElementById("contenido");
-  //         contenido.innerHTML=`
-  //         <p>Bienvenido</p>
-  //         <input id= "sign-out" type="button" value="Cerrar Sesión">`;
-  //     }
- 
+  // let db = firebase.firestore();
+
+  // const buttonPost = document.getElementById("button-post");
+  // buttonPost.addEventListener('click', () => {
+  //     showPost();
+  // })
+  
+  // //Agregar documentos
+  // const showPost = () =>{
+  //     const post = document.getElementById("post").value;
+  //     db.collection("users").add({
+  //         first: post
+  //     })
+  //     .then(function(docRef) {
+  //         console.log("Document written with ID: ", docRef.id);
+  //         document.getElementById("post").value="";
+  //     })
+  //     .catch(function(error) {
+  //         console.error("Error adding document: ", error);
+  //     });
+  // }
+  // //leer documentos
+  
+  // db.collection("users").onSnapshot((querySnapshot) => {
+  //     const table = document.getElementById("table");
+  //     table.innerHTML="";
+  //     querySnapshot.forEach((doc) => {
+  //         console.log(`${doc.id} => ${doc.data().first}`);
+  //         table.innerHTML+= `
+  //         <tr>
+  //         <th>${doc.id}</th>
+  //         <td>${doc.data().first}</td>
+  //         <td><button type="button" class="button button2" onClick="eliminar('${doc.id}')">Eliminar</button></td>
+  //         <td><button type="button" class="button button2" onClick="editar('${doc.id}', '${doc.data().first}')">Editar</button></td>
+  //       </tr>`
+  //     });
+  // });
+  // function eliminar(id) {
+  // //Borrar documentos
+  // db.collection("users").doc(id).delete().then(function() {
+  //     console.log("Document successfully deleted!");
+  // }).catch(function(error) {
+  //     console.error("Error removing document: ", error);
+  // });
+  // }
