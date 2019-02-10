@@ -6,27 +6,45 @@
   }
 body{
   margin: 0;
-  background:#62BBC1;
-  font-family: sans-serif;
+  font-family: Lato;
  }
 
+.login, .register{
+  min-height: 1000px;
+}
 a{
   text-align: center;
   font-weight: bold;
   text-decoration: none;
   color: white;
 }
+
 #message, #message2{
   display: none;
   color: red;
   margin-bottom: 10px;
 }
-.register{
-  color:white;
-  width: 95%;
+.login{
+  width: 100%;
   max-width: 500px;
   margin: auto;
   text-align: center;
+  padding: 10px;
+  background:#62BBC1;
+  color:white;
+
+}
+.register{
+  background-image: url("https://cdn.pixabay.com/photo/2015/10/26/18/25/dog-1007594_960_720.jpg");
+  background-position: center;
+  background-size: cover;
+  backdrop-filter: opacity(50%);
+  color: white
+}
+::placeholder { 
+  font-family: Lato;
+  font-size: 15px; 
+  color: white;
 }
 .button{
   background: #1698A0;
