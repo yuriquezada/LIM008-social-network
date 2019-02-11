@@ -15,7 +15,8 @@ export const logIn = (email, password) => {
         console.log(errorCode)
         console.log(errorMessage)
         // ...
-      });
+      }); 
+    console.log(firebase.auth().signInWithEmailAndPassword(email, password))
   }
 
 export const signUp = (email, password) => {
@@ -88,6 +89,34 @@ export const googleLogIn = () => {
     .catch(function(error) {
         console.error("Error adding document: ", error);
     });
+}
+
+//Función para leer comentarios
+export const readPost = () => {
+  firebase.firestore().collection("users").onSnapshot((querySnapshot) => {
+    const table = document.getElementById('table');
+    table.innerHTML="";
+    querySnapshot.forEach((doc) => {
+        // console.log(`${doc.id} => ${doc.data().first}`);
+        console.log(doc.id)
+        table.innerHTML+= `
+        <div id= "${doc.id}"
+        <p>${doc.data().first}</p>
+        <button type="button" id="delete${doc.id}">Eliminar</button>
+        <button type="button" id="edit${doc.id}">Editar</button>
+        `
+  
+    const botonEliminar = table.querySelector(`#delete${doc.id}`); 
+    botonEliminar.addEventListener('click', () => {
+    console.log('se elimino')
+    deletePost(doc.id);
+  })
+  });
+});
+}
+
+export const deletePost = (id) => {
+  firebase.firestore().collection('users').doc(id).delete();
 }
 
 // export const observer = () => {

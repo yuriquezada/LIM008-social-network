@@ -1,21 +1,4 @@
-import { signOut, showPost} from './firebase.js';
-
-//Función para leer comentarios
-const readPost = () => {
-  firebase.firestore().collection("users").onSnapshot((querySnapshot) => {
-    const table = document.createElement('table');
-    table.innerHTML="";
-    querySnapshot.forEach((doc) => {
-        // console.log(`${doc.id} => ${doc.data().first}`);
-        table.innerHTML+= `
-        <p>${doc.data().first}</p>
-        <button type="button" id="delete">Eliminar</button>
-        <button type="button" id="edit">Editar</button>
-        `
-  });
-});
-}
-
+import { signOut, showPost, readPost} from './firebase.js';
 
 export const home = () => {
     const viewHome = `
@@ -32,11 +15,12 @@ export const home = () => {
         <button id="button-post" class="button button2">Publicar</button>
       </form>
         <div id="table">
+        ${readPost()}
         </div>
     <footer id="menu-abajo" class="menu-abajo color">
       <img class="icon-signout" src="imgs/publico.png" alt="privado">
       <img  src="imgs/amigos.png" alt="público">
-      <a href="#/signIn"><img id="sign-out" src="imgs/salir.png" alt="salir"></a>
+      <a><img id="sign-out" src="imgs/salir.png" alt="salir"></a>
     </footer>
     </section>
     `;
@@ -52,7 +36,6 @@ export const home = () => {
       .querySelector('#button-post')
       .addEventListener('click', () => { 
         showPost(); 
-        readPost();
      });
     //  divElem
     //  .querySelector('#delete')

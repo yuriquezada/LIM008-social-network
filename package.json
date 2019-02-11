@@ -23,6 +23,7 @@
     "eslint": "^5.10.0",
     "eslint-plugin-jest": "^22.1.2",
     "firebase-functions-test": "^0.1.6",
+    "firebase-mock": "^2.2.10",
     "htmlhint": "^0.10.1",
     "jest": "^23.6.0",
     "mocha": "^5.2.0",

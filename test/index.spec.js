@@ -1,13 +1,13 @@
 // importamos la funcion que vamos a testear
 
 // configurando firebase mock
-const firebasemock = require('firebase-mock');
-const mockauth = new firebasemock.MockFirebase();
-const mockfirestore = new firebasemock.MockFirestore();
+import { MockFirebase, MockFirestore, MockFirebaseSdk } from 'firebase-mock';
+const mockauth = new MockFirebase();
+const mockfirestore = new MockFirestore();
 mockfirestore.autoFlush();
 mockauth.autoFlush();
 
-global.firebase = firebasemock.MockFirebaseSdk(
+global.firebase = MockFirebaseSdk(
   // use null if your code does not use RTDB
   path => (path ? mockdatabase.child(path) : null),
   () => mockauth,
@@ -15,18 +15,24 @@ global.firebase = firebasemock.MockFirebaseSdk(
 );
 
 // iniciando tests
-import { signIn } from "../src/lib/firebase.js";
+import { logIn } from "../src/lib/firebase.js";
 
-describe('signIn', () => {
+describe('logIn', () => {
   it('debería ser una función', () => {
-    expect(typeof signIn).toBe('function');
+    expect(typeof logIn).toBe('function');
   });
+  it('deberia verificar que el usuario exista en la base de datos', ()=>{
+    return logIn('brenda.sd.15@gmail.com', '123123')
+      .then((user)=>{
+       expect(user.email).toBe('brenda.sd.15@gmail.com')
+      })
+  })
 });
-describe('lista de notas', () => {
+/* describe('lista de notas', () => {
   it('Debería poder iniciar sesion', () => {
-    return signIn('brenda.sd.15@gmail.com', '123123')
+    return logIn('brenda.sd.15@gmail.com', '123123')
       .then((user) => {
         expect(user.email).toBe('brenda.sd.15@gmail.com')
       })
-  });
-})
+  }); */
+// })
