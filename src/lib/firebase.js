@@ -75,7 +75,37 @@ export const googleLogIn = () => {
       console.log('no ingreso con google')
     });
   } 
-  
+
+  export const showPost = () =>{
+    const post = document.getElementById("post").value;
+    firebase.firestore().collection("users").add({
+        first: post
+    })
+    .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+        document.getElementById("post").value="";
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
+}
+
+//Función para leer comentarios
+export const readPost = () => {
+  firebase.firestore().collection("users").onSnapshot((querySnapshot) => {
+    const table = document.getElementById("table");
+    table.innerHTML="";
+    querySnapshot.forEach((doc) => {
+        // console.log(`${doc.id} => ${doc.data().first}`);
+        table.innerHTML+= `
+        <p>${doc.data().first}</p>
+        <button type="button" id="delete">Eliminar</button>
+        <button type="button" id="edit">Editar</button>
+        `
+  });
+});
+}
+
 // export const observer = () => {
 //     firebase.auth().onAuthStateChanged(function(user) {
 //         if (user) {

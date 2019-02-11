@@ -1,4 +1,4 @@
-import { signOut } from './firebase.js';
+import { signOut, showPost, readPost} from './firebase.js';
 
 export const home = () => {
     const viewHome = `
@@ -7,22 +7,17 @@ export const home = () => {
     </header>
     <section>
       <form action="">
-        <textarea name="" id="" placeholder="Escribe aquí..." cols="80" rows="8"></textarea>
+        <textarea name="" id="post" placeholder="Escribe aquí..." cols="80" rows="8"></textarea>
         <select class="button button1">
           <option value="amigos"><img src="imgs/amigos-s.png" alt="iconA">Amigos</option>
           <option value="privado"><img src="" alt="">Privado</option>
         </select>
         <button id="button-post" class="button button2">Publicar</button>
       </form>
-      <table>
-        <tbody id="table">
-          <tr>
-          /aqui va el doc.id :D/
-          <td><button type="button" id="delete">Eliminar</button></td>
-          <td><button type="button" id="edit">Editar</button></td>
-          </tr>
-        </tbody>
-      </table>
+        <div id="table">
+          <button type="button" id="delete">Eliminar</button>
+          <button type="button" id="edit">Editar</button>
+        </div>
     <footer id="menu-abajo" class="menu-abajo color">
       <img class="icon-signout" src="imgs/publico.png" alt="privado">
       <img  src="imgs/amigos.png" alt="público">
@@ -41,12 +36,13 @@ export const home = () => {
     divElem
       .querySelector('#button-post')
       .addEventListener('click', () => { 
-       console.log('si funciono :D')     
+        showPost(); 
+        readPost();
      });
      divElem
      .querySelector('#delete')
      .addEventListener('click', () => { 
-      console.log('no se si funciono :S')     
+      
     });
     divElem
       .querySelector('#edit')
