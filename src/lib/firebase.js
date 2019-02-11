@@ -97,15 +97,33 @@ export const readPost = () => {
     table.innerHTML="";
     querySnapshot.forEach((doc) => {
         // console.log(`${doc.id} => ${doc.data().first}`);
-        table.innerHTML+= `
-        <p>${doc.data().first}</p>
-        <button type="button" id="delete">Eliminar</button>
-        <button type="button" id="edit">Editar</button>
-        `
+        console.log(doc.id)
+        table.innerHTML+=  `<div class= "coment"><p>${doc.data().first}</p>
+        <button type="button" class= "button button1" id="${doc.id}">Eliminar</button>
+        <button type="button" class= "button button2" id="${doc.id}">Editar</button></div> `;
   });
+  document.querySelectorAll('button.button1').forEach((e)=>{
+    e.addEventListener('click', (e)=>{
+      console.log(e.target.id)
+      deletePost(e.target.id);
+    })
+  })
+  document.querySelectorAll('button.button2').forEach((e)=>{
+    e.addEventListener('click', (e)=>{
+      console.log(e.target.id)
+      editPost(e.target.id, `${doc.data().first}`);
+    })
+  })
 });
 }
-
+const deletePost = (id) =>{
+  firebase.firestore().collection("users").doc(id).delete();
+  }
+  const editPost = (id, post) => {
+    firebase.firestore().collection("users").doc(id).update({
+    first:post
+    })
+    }
 // export const observer = () => {
 //     firebase.auth().onAuthStateChanged(function(user) {
 //         if (user) {
