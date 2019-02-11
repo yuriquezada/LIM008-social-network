@@ -86,7 +86,6 @@ button, a{
   background-size: cover;
   backdrop-filter: opacity(50%);
   color: white;
-
 }
 .register img{
   margin: 50px
@@ -116,3 +115,34 @@ input:focus{
   outline: none;
 }
 
+@media (min-width:550px){
+  .inputs-buttons-img{
+    width: 500px;
+    margin: auto;
+    margin: 0px 50px 0px
+  }
+  .inputs-buttons{
+    margin: auto
+  }
+
+@media (max-width:550) and (max-width:1200px){
+    
+  }
+@media (min-width:1200px) {
+  .inputs-buttons-img{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: auto;
+    margin: 0px 50px 0px
+  
+  }
+  .inputs-buttons{
+    min-width: 500px;
+    margin: auto;
+    /* margin: 0px 50px 0px; */
+  }
+  .pets-signup{
+    width: 50%;
+    margin: auto
+  }
+}
