@@ -84,7 +84,6 @@ button, a{
   background-image: url("./imgs/background-register.jpg");
   background-position: center;
   background-size: cover;
-  backdrop-filter: opacity(50%);
   color: white;
 }
 .register img{
@@ -115,34 +114,47 @@ input:focus{
   outline: none;
 }
 
-@media (min-width:550px){
-  .inputs-buttons-img{
-    width: 500px;
-    margin: auto;
-    margin: 0px 50px 0px
-  }
-  .inputs-buttons{
-    margin: auto
-  }
 
-@media (max-width:550) and (max-width:1200px){
-    
-  }
-@media (min-width:1200px) {
+@media(min-width: 500px){
   .inputs-buttons-img{
-    display: flex;
-    flex-direction: row-reverse;
     margin: auto;
-    margin: 0px 50px 0px
-  
+    text-align: center
   }
   .inputs-buttons{
-    min-width: 500px;
-    margin: auto;
-    /* margin: 0px 50px 0px; */
+    margin: 0 auto;
+    margin: 0px 50px 0px;
+    max-width: 500px;;
   }
   .pets-signup{
+    min-width: 500px;
+  }
+}
+
+@media(max-width: 1200px) and (min-width: 500px){
+
+    .inputs-buttons{
+      margin: auto;
+    width: 500px;
+  }
+  .pets-signup{
+    margin: auto;
+    width: 500px;
+  }
+  
+}
+@media(min-width: 1200px){
+  .logo{
+    margin-bottom: 0
+  }
+  .inputs-buttons{
+    margin: auto;
+  }
+  .pets-signup{ 
+    margin: auto;
     width: 50%;
-    margin: auto
+  }
+  .inputs-buttons-img{
+    flex-direction: row-reverse;
+    display: flex
   }
 }
