@@ -1,24 +1,8 @@
 import { changeHash } from "../route.js";
 
-export const logIn = (email, password) => {
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
-      changeHash('/home')
-     })
-    .catch(function(error) {
-        // Handle Errors here.
-        document.querySelector("#message").style.display = "block";
-        // alert("Usuario o contraseña incorrectos");
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        console.log(errorCode)
-        console.log(errorMessage)
-        // ...
-      }); 
-    console.log(firebase.auth().signInWithEmailAndPassword(email, password))
-  }
-
+export const logIn = (email, password) =>
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  
 export const signUp = (email, password) => {
     // event.preventDefault();
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -99,26 +83,32 @@ export const readPost = () => {
     querySnapshot.forEach((doc) => {
         // console.log(`${doc.id} => ${doc.data().first}`);
         console.log(doc.id)
-        table.innerHTML+= `
-        <div id= "${doc.id}"
-        <p>${doc.data().first}</p>
-        <button type="button" id="delete${doc.id}">Eliminar</button>
-        <button type="button" id="edit${doc.id}">Editar</button>
-        `
-  
-    const botonEliminar = table.querySelector(`#delete${doc.id}`); 
-    botonEliminar.addEventListener('click', () => {
-    console.log('se elimino')
-    deletePost(doc.id);
-  })
+        table.innerHTML+=  `<div class= "coment"><p>${doc.data().first}</p>
+        <button type="button" class= "button button1" id="${doc.id}">Eliminar</button>
+        <button type="button" class= "button button2" id="${doc.id}">Editar</button></div> `;
   });
+  document.querySelectorAll('button.button1').forEach((e)=>{
+    e.addEventListener('click', (e)=>{
+      console.log(e.target.id)
+      deletePost(e.target.id);
+    })
+  })
+  document.querySelectorAll('button.button2').forEach((e)=>{
+    e.addEventListener('click', (e)=>{
+      console.log(e.target.id)
+      editPost(e.target.id, `${doc.data().first}`);
+    })
+  })
 });
 }
-
-export const deletePost = (id) => {
-  firebase.firestore().collection('users').doc(id).delete();
-}
-
+  const deletePost = (id) =>{
+    firebase.firestore().collection("users").doc(id).delete();
+    }
+  const editPost = (id, post) => {
+    firebase.firestore().collection("users").doc(id).update({
+    first:post
+    })
+    }
 // export const observer = () => {
 //     firebase.auth().onAuthStateChanged(function(user) {
 //         if (user) {

@@ -9,20 +9,20 @@ export const home = () => {
       <form action="">
         <textarea name="" id="post" placeholder="Escribe aquí..." cols="80" rows="8"></textarea>
         <select class="button button1">
-          <option value="amigos"><img src="imgs/amigos-s.png" alt="iconA">Amigos</option>
-          <option value="privado"><img src="" alt="">Privado</option>
+          <option value="amigos">Amigos</option>
+          <option value="privado">Privado</option>
         </select>
         <button id="button-post" class="button button2">Publicar</button>
       </form>
         <div id="table">
-        ${readPost()}
+          ${readPost()}
         </div>
+    </section>
     <footer id="menu-abajo" class="menu-abajo color">
       <img class="icon-signout" src="imgs/publico.png" alt="privado">
       <img  src="imgs/amigos.png" alt="público">
       <a><img id="sign-out" src="imgs/salir.png" alt="salir"></a>
     </footer>
-    </section>
     `;
     const divElem = document.createElement('div');
     divElem.setAttribute('id', 'muro');
@@ -37,16 +37,5 @@ export const home = () => {
       .addEventListener('click', () => { 
         showPost(); 
      });
-    //  divElem
-    //  .querySelector('#delete')
-    //  .addEventListener('click', () => { 
-      
-    // });
-    // divElem
-    //   .querySelector('#edit')
-    //   .addEventListener('click', () => { 
-    //    console.log('no se si funciono :S')     
-    //  });
-    
     return divElem; 
    }; 

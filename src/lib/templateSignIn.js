@@ -1,5 +1,6 @@
-import { logIn, googleLogIn } from './firebase.js';
+import { googleLogIn } from './firebase.js';
 import { changeHash } from '../route.js';
+import { signInOnSubmit } from './view-controller.js';
 
 export const pageSignIn = () => {
     const template = `<form class="register">
@@ -18,9 +19,9 @@ export const pageSignIn = () => {
      .querySelector('#btn-log-in')
      .addEventListener('click', event => {
            event.preventDefault();
-          const email2 = element.querySelector("#email2").value;
-          const password2 = element.querySelector("#password2").value;
-            logIn(email2, password2); 
+        //   const email2 = element.querySelector("#email2").value;
+        //   const password2 = element.querySelector("#password2").value;
+            signInOnSubmit();
          });
     element 
     .querySelector('#google-button')

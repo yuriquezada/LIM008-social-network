@@ -84,6 +84,7 @@ section{
   text-align: center;
   border-bottom: 5px solid #E1E1E1;
   width: 100%;
+  background: rgb(255, 255, 255);
 }
 textarea {
   /* deshabilitar la posibilidad de redimiensionar */
@@ -108,7 +109,7 @@ textarea {
   border-color: #aaaaaa;
   border-width: 1px;
   border-style: solid;
-  color: rgb(146, 146, 146);
+  color: rgb(255, 255, 255);
 }
 .button2 {
   background-color: #008CBA;
@@ -128,8 +129,9 @@ th, td {
   border-collapse: collapse;
 }
 footer{
-  width: 100%;
+width: 100%;
+background: white;
 border-top: 2px solid rgb(146, 146, 146);
-position: absolute;
 bottom: 0; 
+position: fixed;
 }
