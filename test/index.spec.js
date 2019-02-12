@@ -15,7 +15,7 @@ global.firebase = MockFirebaseSdk(
 );
 
 // iniciando tests
-import { logIn } from "../src/lib/firebase.js";
+import { logIn, signUp } from "../src/lib/firebase.js";
 
 describe('logIn', () => {
   it('debería ser una función', () => {
@@ -27,6 +27,18 @@ describe('logIn', () => {
        expect(user.email).toBe('brenda.sd.15@gmail.com')
       })
   })
+});
+
+describe('signUp', () => {
+  it('debería ser una función', () => {
+    expect(typeof signUp).toBe('function');
+  });
+  it('Debería poder registrar en la base de datos de firebase', () => {
+    return signUp('brenda.sd.15@gmail.com', '123123')
+      .then((user) => {
+        expect(user.email).toBe('brenda.sd.15@gmail.com')
+      })
+  });
 });
 /* describe('lista de notas', () => {
   it('Debería poder iniciar sesion', () => {

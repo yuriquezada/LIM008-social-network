@@ -1,4 +1,4 @@
-import { signUp } from './firebase.js';
+import { signUpOnSubmit } from './view-controller.js';
 
 export const pageSignUp = () => {
     const template = `<form class="register">
@@ -17,9 +17,7 @@ export const pageSignUp = () => {
      .querySelector('#btn-sign-up')
      .addEventListener('click', event => {
            event.preventDefault();
-          const email = document.querySelector("#email").value;
-          const password = document.querySelector("#password").value;
-            signUp(email, password);
+           signUpOnSubmit()
          });
 
       return element2;

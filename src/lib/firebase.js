@@ -3,33 +3,21 @@ import { changeHash } from "../route.js";
 export const logIn = (email, password) =>
   firebase.auth().signInWithEmailAndPassword(email, password)
   
-export const signUp = (email, password) => {
-    // event.preventDefault();
+export const signUp = (email, password) => 
     firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then( () => {
-      check();
-      changeHash('/home') 
-    })
-    .catch(function (error) {
-      // Handle Errors here.
-      document.getElementById("message2").style.display = "block";
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
-    });
-  
-  }
-const check = () => {
-  var user = firebase.auth().currentUser;
 
-user.sendEmailVerification().then(function() {
-  console.log("enviando correo");
-  // Email sent.
-}).catch(function(error) {
-  // An error happened.
-  console.log(error);
-});
-}
+export const check = () => {
+  const user = firebase.auth().currentUser;
+
+    user.sendEmailVerification()
+    .then(function() {
+      console.log("enviando correo");
+      // Email sent.
+    }).catch(function(error) {
+      // An error happened.
+      console.log(error);
+    });
+  }
 
 export const signOut = () => {
   console.log("saliendo...")
@@ -101,7 +89,7 @@ export const readPost = () => {
   })
 });
 }
-  const deletePost = (id) =>{
+export const deletePost = (id) =>{
     firebase.firestore().collection("users").doc(id).delete();
     }
   const editPost = (id, post) => {
