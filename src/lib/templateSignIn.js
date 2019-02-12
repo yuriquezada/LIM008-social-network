@@ -3,7 +3,7 @@ import { changeHash } from '../route.js';
 
 export const pageSignIn = () => {
     const template = `<form class="login">
-                        <img class="logo" src="imgs/logo.png" alt="pets">
+                        <img class="logo" src="imgs/Logo.png" alt="pets">
                         <section class="inputs-buttons-img">
                         <div class="inputs-buttons">
                             <input class= "space" id="email2" type="email" placeholder="Correo electrónico" required>
