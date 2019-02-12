@@ -5,7 +5,6 @@ body{
   margin: auto;
   font-family: Lato;
   text-align: center;
-
  }
 
 .login, .register{
@@ -31,6 +30,7 @@ body{
 .login ::placeholder{
   font-size: 18px;
   color: rgba(255, 255, 255, 0.4);
+  font-family: Lato
 }
 #message, #message2{
   display: none;
@@ -84,9 +84,7 @@ button, a{
   background-image: url("./imgs/background-register.jpg");
   background-position: center;
   background-size: cover;
-  backdrop-filter: opacity(50%);
   color: white;
-
 }
 .register img{
   margin: 50px
@@ -116,3 +114,111 @@ input:focus{
   outline: none;
 }
 
+
+@media(min-width: 500px){
+  .inputs-buttons-img{
+    margin: auto;
+    text-align: center
+  }
+  .inputs-buttons{
+    margin: 0 auto;
+    margin: 0px 50px 0px;
+    max-width: 500px;;
+  }
+  .pets-signup{
+    min-width: 500px;
+  }
+}
+
+@media(max-width: 1200px) and (min-width: 500px){
+
+    .inputs-buttons{
+      margin: auto;
+    width: 500px;
+  }
+  .pets-signup{
+    margin: auto;
+    width: 500px;
+  }
+  
+}
+@media(min-width: 1200px){
+  .logo{
+    margin-bottom: 0
+  }
+  .inputs-buttons{
+    margin: auto;
+  }
+  .pets-signup{ 
+    margin: auto;
+    width: 50%;
+  }
+  .inputs-buttons-img{
+    flex-direction: row-reverse;
+    display: flex
+  }
+}
+
+
+
+/* HOME */
+.menu-arriba{
+  background: #62BBC1;
+  justify-content: space-between;
+}
+.menu-abajo{
+  justify-content: space-around;
+}
+section{
+  text-align: center;
+  width: 100%;
+}
+textarea {
+  /* deshabilitar la posibilidad de redimiensionar */
+  resize: none;  
+  border-radius: 20px;
+  margin: 30px;
+}
+.button {
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button1 {
+  border-color: #aaaaaa;
+  border-width: 1px;
+  border-style: solid;
+  color: rgb(255, 255, 255);
+}
+.button2 {
+  background-color: #008CBA;
+}
+
+.button:focus{
+  outline: none;
+}
+table {
+  width: 100%;
+}
+th, td {
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #939393;
+  border-collapse: collapse;
+}
+footer{
+width: 100%;
+background: white;
+border-top: 2px solid rgb(146, 146, 146);
+bottom: 0; 
+position: fixed;
+}
