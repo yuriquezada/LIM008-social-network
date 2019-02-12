@@ -36,7 +36,6 @@ export const pageSignIn = () => {
                           <p>¿No tienes cuenta? <a id="registrate" href="#">Regístrate</a></p>  
                         </div>
                       </section>
-
                     </form>`
   const element = document.createElement('div');
   element.innerHTML = template;
