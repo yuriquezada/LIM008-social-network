@@ -84,7 +84,7 @@ export const readPost = () => {
   document.querySelectorAll('button.button2').forEach((e)=>{
     e.addEventListener('click', (e)=>{
       console.log(e.target.id)
-      editPost(e.target.id, `${doc.data().first}`);
+      // editPost(e.target.id, `${doc.data().first}`);
     })
   })
 });
