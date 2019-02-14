@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // import { googleLogIn } from './lib/firebase.js';
+=======
+>>>>>>> 4bcdf4163204e3badc7653a6ed5b541701a65cf5
 import { initRouterPetbook } from './route.js';
 
 const inicializa = () => {
@@ -15,6 +18,7 @@ const inicializa = () => {
 }
 
 window.addEventListener('load', inicializa)
+<<<<<<< HEAD
 // window.onload = inicializa()
 // const btnSigUp = document.getElementById("btn-sign-up");
 // btnSigUp.addEventListener('click', event => {
@@ -137,3 +141,5 @@ window.addEventListener('load', inicializa)
   // }
   // observador();
 
+=======
+>>>>>>> 4bcdf4163204e3badc7653a6ed5b541701a65cf5

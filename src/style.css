@@ -1,40 +1,65 @@
 *{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
+  box-sizing: border-box;
   }
 body{
-  margin: 0;
-  background:#62BBC1;
-  font-family: sans-serif;
+  margin: auto;
+  font-family: Lato;
+  text-align: center;
  }
 
-a{
-  text-align: center;
-  font-weight: bold;
-  text-decoration: none;
+.login, .register{
+  position: absolute;
+  height: 100%;
+  padding: 25px;
+  margin: auto;
+  width: 100%;
+}
+.login{
+  background:#62BBC1;
+  color:white;
+}
+.logo{
+  margin: 20px 0px 40px
+}
+.login input{
   color: white;
+  background-color: rgba(74, 152, 255, 0);
+  border: 0;
+  border-bottom: 2px solid rgb(255, 255, 255, 0.1);
+ }
+.login ::placeholder{
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: Lato
 }
 #message, #message2{
   display: none;
   color: red;
   margin-bottom: 10px;
 }
-.register{
-  color:white;
-  width: 95%;
-  max-width: 500px;
-  margin: auto;
-  text-align: center;
+
+button, a{
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-family: Lato;
 }
+.button img {
+  width: 22px;
+}
+.space{
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+ }
+
 .button{
   background: #1698A0;
   color: white;
   border: 0;
   border-radius: 4px;
   font-weight: bold;
-  font-size: 15px;
+  height: 35px;
 }
 .button:hover{
   cursor: pointer;
@@ -50,23 +75,104 @@ a{
 .google:hover{
   background: rgb(216, 216, 216);
 }
-img{
-  vertical-align: middle; 
-  margin-right: 10px;
+.pets{
+  width: 95%;
+  margin-top: 31px
 }
-input{
+
+.register{
+  background-image: url("./imgs/background-register.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+.register img{
+  margin: 50px
+}
+.register h2{
+  text-align: left;
+  font-size: 30px
+}
+.register ::placeholder { 
+  font-family: Lato;
+  font-size: 18px; 
+  color:rgba(255, 255, 255, 0.7);
+}
+
+.register input{
   color: white;
   background-color: rgba(74, 152, 255, 0);
   border: 0;
-  border-bottom: 2px solid rgb(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  margin-top: 40px;
+
+ }
+ .register button{
+   margin-top: 100px
  }
 input:focus{
   outline: none;
 }
- .space{
-  font-size: 18px;
-  padding: 10px;
+
+
+@media(min-width: 500px){
+  .inputs-buttons-img{
+    margin: auto;
+    text-align: center
+  }
+  .inputs-buttons{
+    margin: 0 auto;
+    margin: 0px 50px 0px;
+    max-width: 500px;;
+  }
+  .pets-signup{
+    min-width: 500px;
+  }
+}
+
+@media(max-width: 1200px) and (min-width: 500px){
+
+    .inputs-buttons{
+      margin: auto;
+    width: 500px;
+  }
+  .pets-signup{
+    margin: auto;
+    width: 500px;
+  }
+  
+}
+@media(min-width: 1200px){
+  .logo{
+    margin-bottom: 0
+  }
+  .inputs-buttons{
+    margin: auto;
+  }
+  .pets-signup{ 
+    margin: auto;
+    width: 50%;
+  }
+  .inputs-buttons-img{
+    flex-direction: row-reverse;
+    display: flex
+  }
+}
+
+
+
+/* HOME */
+.menu-arriba{
+  background: #62BBC1;
+  justify-content: space-between;
+}
+.menu-abajo{
+  justify-content: space-around;
+}
+section{
+  text-align: center;
   width: 100%;
+<<<<<<< HEAD
   margin-bottom: 20px;
  }
 .color{
@@ -85,6 +191,8 @@ section{
   border-bottom: 5px solid #E1E1E1;
   width: 100%;
   background: rgb(255, 255, 255);
+=======
+>>>>>>> 4bcdf4163204e3badc7653a6ed5b541701a65cf5
 }
 textarea {
   /* deshabilitar la posibilidad de redimiensionar */
