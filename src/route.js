@@ -1,6 +1,7 @@
 import { home } from "./lib/templateHome.js";
 import { pageSignIn } from "./lib/templateSignIn.js";
 import { pageSignUp } from "./lib/templateSignUp.js";
+import { getPost } from "./lib/controller.js";
 
 export const changeHash = (nameHash) => {
     window.location.hash = nameHash;
@@ -14,7 +15,7 @@ const changeRouter = (hash) => {
     } else {
       return showTemplate('#/404');
     }
-    return showTemplate(hash);
+    // return showTemplate(hash);
   }
   
   const showTemplate = (routers) => {
@@ -29,7 +30,10 @@ const changeRouter = (hash) => {
         container.appendChild(pageSignUp());
         break;
       case 'home':
-        container.appendChild(home());
+        getPost((posts) => {
+          container.innerHTML = '';
+          container.appendChild(home(posts));
+      })
         break;
       default:
         const templateSignIn = pageSignIn()
