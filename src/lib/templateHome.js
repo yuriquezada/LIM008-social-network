@@ -1,6 +1,27 @@
 import { signOut, showPost, readPost} from './firebase.js';
 
-export const home = () => {
+const itemNote = (objNote) => {
+  const liElement = document.createElement('li');
+  liElement.classList.add('mdl-list__item');
+  liElement.innerHTML = `
+    <span class="mdl-list__item-primary-content">
+      <span>${objNote.title}</span>
+    </span>
+    <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}">
+      <i class="material-icons">delete</i>
+    </a>
+  `;
+  // agregando evento de click al btn eliminar una nota
+  liElement.querySelector(`#btn-deleted-${objNote.id}`)
+    .addEventListener('click', () => deleteNoteOnClick(objNote));
+  return liElement;
+}
+
+
+
+
+
+export const home = (note) => {
     const viewHome = `
     <header class="menu-arriba color">
         <img class="" src="imgs/Logo-P.png" alt="home">

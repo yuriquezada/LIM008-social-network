@@ -1,7 +1,7 @@
 import { changeHash } from "../route.js";
 
 export const logIn = (email, password) => {
-
+  
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
       changeHash('/home')
@@ -28,12 +28,9 @@ export const signUp = (email, password) => {
     .catch(function (error) {
       // Handle Errors here.
       document.getElementById("message2").style.display = "block";
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
     });
   
-  }
+  };
 const check = () => {
   var user = firebase.auth().currentUser;
 
@@ -44,13 +41,13 @@ user.sendEmailVerification().then(function() {
   // An error happened.
   console.log(error);
 });
-}
+};
 
 export const signOut = () => {
   console.log("saliendo...")
     firebase.auth().signOut()
     changeHash('/signin')
-  } 
+  };
 
 export const googleLogIn = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -74,12 +71,13 @@ export const googleLogIn = () => {
       // ...
       console.log('no ingreso con google')
     });
-  } 
+  };
 
   export const showPost = () =>{
     const post = document.getElementById("post").value;
     firebase.firestore().collection("users").add({
-        first: post
+        first: post,
+        like: 0
     })
     .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -88,7 +86,7 @@ export const googleLogIn = () => {
     .catch(function(error) {
         console.error("Error adding document: ", error);
     });
-}
+};
 
 //Función para leer comentarios
 export const readPost = () => {
@@ -98,9 +96,9 @@ export const readPost = () => {
     querySnapshot.forEach((doc) => {
         // console.log(`${doc.id} => ${doc.data().first}`);
         console.log(doc.id)
-        table.innerHTML+=  `<div class= "coment"><p>${doc.data().first}</p>
+        table.innerHTML+=  `<div class="coment"><form><div id="coment">${doc.data().first}</div>
         <button type="button" class= "button button1" id="${doc.id}">Eliminar</button>
-        <button type="button" class= "button button2" id="${doc.id}">Editar</button></div> `;
+        <button type="button" class= "button button2" id="${doc.id}">Editar</button></form></div> `;
   });
   document.querySelectorAll('button.button1').forEach((e)=>{
     e.addEventListener('click', (e)=>{
@@ -110,20 +108,32 @@ export const readPost = () => {
   })
   document.querySelectorAll('button.button2').forEach((e)=>{
     e.addEventListener('click', (e)=>{
-      console.log(e.target.id)
-      editPost(e.target.id, `${doc.data().first}`);
+      // console.log(e.target.id)
+      // console.log(e.target.p)
+      const first= document.getElementById("coment").innerHTML
+      // console.log(first)
+      editPost(e.target.id, first);
     })
   })
 });
-}
+};
+
 const deletePost = (id) =>{
   firebase.firestore().collection("users").doc(id).delete();
-  }
-  const editPost = (id, post) => {
-    firebase.firestore().collection("users").doc(id).update({
-    first:post
+  };
+
+const editPost = (id, post) => {
+    document.getElementById("coment").value = post;
+    let contentEdit = firebase.firestore().collection('users').doc(id);
+    return contentEdit.update({
+      first: post
     })
-    }
+    .then(function() {
+      console.log("Document successfully updated!");
+      document.getElementById("coment").innerHTML="";
+  })
+  };
+
 // export const observer = () => {
 //     firebase.auth().onAuthStateChanged(function(user) {
 //         if (user) {
