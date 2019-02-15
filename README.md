@@ -1,9 +1,9 @@
-# Data Lovers: League of Legends
+# Creando una Red Social: Petbook
 
 ## Índice
 
 * [Contexto](#contexto)
-* [Descripción](#resumen-del-proyecto)
+* [Resumen del proyecto](#resumen-del-proyecto)
 * [Proceso de diseño](#proceso-de-diseño)
 
 ***
@@ -21,14 +21,12 @@ necesitaban ver o compartir en nuestra red social, luego construimos una interfa
 ## Proceso de diseño
 ### **1. Descubrimiento e investigación**
 
-![Sin Título](src/imgs/Descubrimiento.png)
+![Sin Título](src/imgs/descubrimiento.png)
 Los usuarios a los que este proyecto va dirigido son los dueños de las mascotas que deseen crearse una cuenta, publicar, compartir todo sobre sus mascotas, ver también publicaciones de otros usuarios y darle like a lo que más les guste.
 
 ### **2. Síntesis y Definición**
 
-![Sin Título](src/imgs/Definicion.png)
-
-El usuario entrevistado es un 
+![Sin Título](src/imgs/definicion.png)
 
 ![Sin Título](/src/imgs/arquetipo.jpg)
 
@@ -42,15 +40,17 @@ El usuario entrevistado es un
 7. Yo como usuario quiero dar like a una publicación para indicar que me gustó o me agradó lo que vi.
 8. Yo como usuario quiero filtrar las publicaciones por público o privado.
 ### **3. Ideación**
-
-
+![Sin Título](/src/imgs/ideacion.png)
 
 ### **4. Prototipado**
+![Sin Título](/src/imgs/prototipado.png)
 
 * #### Prototipo de baja fidelidad
-
-
-
+![Sin Título](/src/imgs/prototipo-bf-signin.jpg)
+![Sin Título](/src/imgs/prototipo-bf-signup.jpg)
+![Sin Título](/src/imgs/prototipo-bf-home.jpg)
 
 * #### Prototipo de alta fidelidad 
-
+![Sin Título](/src/imgs/prototipo-af-signin.png)
+![Sin Título](/src/imgs/prototipo-af-signup.png)
+![Sin Título](/src/imgs/prototipo-af-home.jpg)
