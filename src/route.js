@@ -35,12 +35,6 @@ const changeRouter = (hash) => {
           container.appendChild(home(posts));
       })
         break;
-      case 'privacity':
-      privacityPost((objPost) => {
-        container.innerHTML = '';
-        container.appendChild(home(objPost));
-    })
-      break;
       default:
         const templateSignIn = pageSignIn()
         container.appendChild(templateSignIn)

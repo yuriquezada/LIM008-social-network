@@ -5,6 +5,7 @@ body{
   margin: auto;
   font-family: Lato;
   text-align: center;
+  background: #62BBC1;
  }
 
 .login, .register{
@@ -38,10 +39,13 @@ body{
   margin-bottom: 10px;
 }
 
+textarea {
+padding: 10px;
+}
 button, a{
   font-weight: bold;
   text-decoration: none;
-  color: white;
+  color: black;
   font-family: Lato;
 }
 .button img {
@@ -53,14 +57,6 @@ button, a{
   margin-bottom: 20px;
  }
 
-.button{
-  background: #1698A0;
-  color: white;
-  border: 0;
-  border-radius: 4px;
-  font-weight: bold;
-  height: 35px;
-}
 .button:hover{
   cursor: pointer;
   background: rgb(2, 110, 124);
@@ -71,6 +67,7 @@ button, a{
 .google{
   background: rgb(240, 240, 240);
   color: #333333;
+  vertical-align: middle;
 }
 .google:hover{
   background: rgb(216, 216, 216);
@@ -159,8 +156,6 @@ input:focus{
   }
 }
 
-
-
 /* HOME */
 .menu-arriba{
   background: #62BBC1;
@@ -169,9 +164,10 @@ input:focus{
 .menu-abajo{
   justify-content: space-around;
 }
-section{
+.section{
   text-align: center;
   width: 100%;
+  background: #ffffff;
 }
 textarea {
   /* deshabilitar la posibilidad de redimiensionar */
@@ -180,11 +176,13 @@ textarea {
   margin: 30px;
 }
 .button {
+  background-color: #1698A0;
   border: none;
   color: white;
   padding: 8px 10px;
   text-align: center;
   text-decoration: none;
+  font-weight: bold;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
@@ -192,15 +190,6 @@ textarea {
   border-radius: 5px;
 }
 
-.button1 {
-  border-color: #aaaaaa;
-  border-width: 1px;
-  border-style: solid;
-  color: rgb(255, 255, 255);
-}
-.button2 {
-  background-color: #008CBA;
-}
 
 .button:focus{
   outline: none;
@@ -209,20 +198,13 @@ textarea {
 .save-post{
   display: none;
 }
-table {
-  width: 100%;
-}
-th, td {
-  width: 25%;
-  text-align: left;
-  vertical-align: top;
-  border-top: 1px solid #939393;
-  border-collapse: collapse;
+
+ul{
+  text-decoration: none;
 }
 footer{
 width: 100%;
 background: white;
 border-top: 2px solid rgb(146, 146, 146);
-bottom: 0; 
-position: fixed;
+padding-top: 10px
 }

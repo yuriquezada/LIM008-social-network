@@ -23,8 +23,7 @@ export const pageSignIn = () => {
     formElem.innerHTML = formSignIn;
     const btnSignIn = formElem.querySelector('#btn-log-in');
     const btnSignInWithGoogle = formElem.querySelector('#google-button');
-    btnSignIn.addEventListener( 'click', e => {
-        e.preventDefault();
+    btnSignIn.addEventListener( 'click', () => {
         signInOnSubmit()});
     btnSignInWithGoogle.addEventListener( 'click', () => {
         signInWithGoogle()});

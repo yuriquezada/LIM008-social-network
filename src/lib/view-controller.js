@@ -26,10 +26,9 @@ export const signUpOnSubmit = () => {
 
 export const submitPost = () => {
     const textArea = document.querySelector('#post');
-    const privacity = document.querySelector('#privacity');
-    const selected = privacity.options[privacity.selectedIndex].text;
+    const privacity = document.querySelector('#privacity').value;
     let like = 0;
-        showPost(textArea.value, like, selected)
+        showPost(textArea.value, like, privacity)
 }
 
 export const deleteOnClickPost = (objNote) => {
