@@ -1,7 +1,7 @@
 import { home } from "./lib/templateHome.js";
 import { pageSignIn } from "./lib/templateSignIn.js";
 import { pageSignUp } from "./lib/templateSignUp.js";
-import { getPost } from "./lib/controller.js";
+import { privacityPost } from "./lib/view-controller.js";
 
 export const changeHash = (nameHash) => {
     window.location.hash = nameHash;
@@ -10,7 +10,7 @@ export const changeHash = (nameHash) => {
 const changeRouter = (hash) => {
     if (hash === '#/' || hash === '' || hash === '#') {
       return showTemplate(hash); //el que carga por defecto, primera vez :3
-    } else if (hash === '#/signup' || hash=== '#/signin' || hash === '#/home' ) {
+    } else if (hash === '#/signup' || hash=== '#/signin' || hash === '#/home' || hash === '#/privacity' ) {
       return showTemplate(hash);
     } else {
       return showTemplate('#/404');
@@ -30,11 +30,17 @@ const changeRouter = (hash) => {
         container.appendChild(pageSignUp());
         break;
       case 'home':
-        getPost((posts) => {
+        privacityPost((posts) => {
           container.innerHTML = '';
           container.appendChild(home(posts));
       })
         break;
+      case 'privacity':
+      privacityPost((objPost) => {
+        container.innerHTML = '';
+        container.appendChild(home(objPost));
+    })
+      break;
       default:
         const templateSignIn = pageSignIn()
         container.appendChild(templateSignIn)

@@ -39,14 +39,13 @@ export const home = (posts) => {
     const viewHome = `
     <header class="menu-arriba color">
         <img class="" src="imgs/Logo.png" alt="home">
->>>>>>> 4bcdf4163204e3badc7653a6ed5b541701a65cf5
     </header>
     <section>
       <form action="">
         <textarea name="" id="post" placeholder="Escribe aquí..." cols="80" rows="8"></textarea>
-        <select class="button button1">
-          <option id="" value="publico">Público</option>
-          <option id="" value="privado">Privado</option>
+        <select id="privacity" class="button button1">
+          <option id="public" value="publico">Público</option>
+          <option id="private" value="privado">Privado</option>
         </select>
         <button id="button-post" class="button button2">Publicar</button>
       </form>

@@ -46,6 +46,8 @@ export const getPost = (callback, user) => {
   }
   };
 
+export const authUser = () => 
+firebase.auth().currentUser;
 
 export const deletePost = (id) =>
   firebase.firestore().collection('users').doc(id).delete();

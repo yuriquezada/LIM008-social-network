@@ -1,12 +1,14 @@
 
-import { logIn, deletePost, signUp, checkEmail, signOut, showPost, googleLogIn, editPost, likePost } from "./controller.js";
-
+import { logIn, deletePost, signUp, checkEmail, signOut, showPost, googleLogIn, editPost, likePost, getPost, authUser } from "./controller.js";
+import { changeHash }from "../route.js";
 export const signInOnSubmit = () => {
     const email = document.querySelector('#email2').value;
     const password = document.querySelector('#password2').value;
+    
     logIn(email, password)
         .then(() => changeHash('/home'))
-        .catch(() => {document.querySelector("#message").style.display = "block";})
+        .catch((e) => {console.log(e);
+         document.querySelector("#message").style.display = "block";})
 }
 
 export const signInWithGoogle = () => {
@@ -24,8 +26,10 @@ export const signUpOnSubmit = () => {
 
 export const submitPost = () => {
     const textArea = document.querySelector('#post');
+    const privacity = document.querySelector('#privacity');
+    const selected = privacity.options[privacity.selectedIndex].text;
     let like = 0;
-        showPost(textArea.value, like)
+        showPost(textArea.value, like, selected)
 }
 
 export const deleteOnClickPost = (objNote) => {
@@ -43,3 +47,5 @@ export const signOutOnClick = () => {
 export const submitLike = (objNote, reaction) =>
     likePost(objNote.id, reaction)
 
+export const privacityPost = (callback) => 
+    getPost(callback, authUser())
