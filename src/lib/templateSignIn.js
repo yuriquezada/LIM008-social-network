@@ -1,7 +1,8 @@
 import { signInOnSubmit, signInWithGoogle } from './view-controller.js';
+import { changeHash } from '../route.js';
 
 export const pageSignIn = () => {
-    const formElem = document.createElement('form');
+    const formElem = document.createElement('div');
     const formSignIn = `
                         <img class="logo" src="imgs/Logo.png" alt="pets">
                         <section class="inputs-buttons-img">
@@ -14,10 +15,10 @@ export const pageSignIn = () => {
                         </div>
                         <div class="pets-signup">
                             <img class="pets" src="imgs/pets.png" alt="pets">
-                            <p>¿No tienes cuenta? <a id="registrate" href="#/signUp">Regístrate</a></p>  
+                            <p>¿No tienes cuenta? <a id="registrate" href="#/signup">Regístrate</a></p>  
                         </div>
                         </section>
-                    `
+                    `;
     
     formElem.classList.add('login')
     formElem.innerHTML = formSignIn;
@@ -26,8 +27,7 @@ export const pageSignIn = () => {
     btnSignIn.addEventListener( 'click', e => {
         e.preventDefault();
         signInOnSubmit()});
-    btnSignInWithGoogle.addEventListener( 'click', e => {
-        e.preventDefault();
+    btnSignInWithGoogle.addEventListener( 'click', () => {
         signInWithGoogle()});
      return formElem; 
   };

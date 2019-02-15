@@ -1,4 +1,4 @@
-import { logIn, deletePost, signUp, checkEmail, signOut, showPost, googleLogIn } from "./controller.js";
+import { logIn, deletePost, signUp, checkEmail, signOut, showPost, googleLogIn, editPost } from "./controller.js";
 import { changeHash } from "../route.js";
 
 export const signInOnSubmit = () => {
@@ -13,6 +13,7 @@ export const signInWithGoogle = () => {
     googleLogIn()
         .then(() => changeHash('/home'))
 }
+
 export const signUpOnSubmit = () => {
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
@@ -29,8 +30,11 @@ const textArea = document.getElementById('post');
 export const deleteOnClickPost = (objNote) =>
 deletePost(objNote.id)
 
+export const editOnClickPost = (objNote, post) =>
+editPost(objNote, post)
+
 export const signOutOnClick = () => {
     signOut()
-        .then(() => changeHash('/signIn'))
+        .then(() => changeHash('/signin'))
 }
 

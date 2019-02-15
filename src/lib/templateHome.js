@@ -1,16 +1,30 @@
-import { submitPost, deleteOnClickPost} from './view-controller.js';
+import { submitPost, deleteOnClickPost, editOnClickPost} from './view-controller.js';
 import { signOutOnClick } from './view-controller.js';
 
 const itemPost = (objPost) => {
   const liElem = document.createElement('li');
   liElem.innerHTML = `
   <span>
-    <span>${objPost.comment}</span>
+    <textarea id="to-edit-${objPost.id}" disabled>${objPost.comment}</textarea>
   </span>
   <button id ="btn-delete-${objPost.id}">Eliminar</button>
+  <button id ="btn-edit-${objPost.id}">Editar</button>
+  <button id ="btn-save-edit" class= "save-post">Guardar</button>
   `;
   liElem.querySelector(`#btn-delete-${objPost.id}`)
   .addEventListener( 'click', () => deleteOnClickPost(objPost));
+  const editBtn = liElem.querySelector(`#btn-edit-${objPost.id}`);
+  const saveEdit = liElem.querySelector('#btn-save-edit');
+  const text = liElem.querySelector(`#to-edit-${objPost.id}`);
+  editBtn.addEventListener( 'click', () => {
+   text.disabled = false;
+   liElem.querySelector(`#btn-save-edit`).style.display = 'block';
+  });
+  saveEdit.addEventListener( 'click', () => {
+    text.disabled = true;
+    editOnClickPost(objPost.id, text.value);
+    liElem.querySelector(`#btn-save-edit`).style.display = 'none'; 
+  });
   return liElem;
 }
 

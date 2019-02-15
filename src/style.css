@@ -205,6 +205,10 @@ textarea {
 .button:focus{
   outline: none;
 }
+
+.save-post{
+  display: none;
+}
 table {
   width: 100%;
 }

@@ -12,10 +12,10 @@ export const signOut = () =>
  
 export const googleLogIn = () => {
     let provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider)
+    return firebase.auth().signInWithPopup(provider)
   } 
 
-  export const showPost = (post) => {
+export const showPost = (post) => {
     firebase.firestore().collection("users").add({
     comment: post
   })
@@ -34,5 +34,10 @@ export const getPost = (callback) => {
 
 export const deletePost = (id) =>
   firebase.firestore().collection("users").doc(id).delete();
-  
+
+export const editPost = (id, text) => {
+    return firebase.firestore().collection('users').doc(id).update({
+      comment: text,
+  });
+};
  
