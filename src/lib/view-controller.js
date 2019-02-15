@@ -1,4 +1,4 @@
-import { logIn, deletePost, signUp, checkEmail, signOut, showPost, googleLogIn, editPost } from "./controller.js";
+import { logIn, deletePost, signUp, checkEmail, signOut, showPost, googleLogIn, editPost, likePost } from "./controller.js";
 import { changeHash } from "../route.js";
 
 export const signInOnSubmit = () => {
@@ -23,12 +23,15 @@ export const signUpOnSubmit = () => {
 }
 
 export const submitPost = () => {
-const textArea = document.getElementById('post');
-    showPost(textArea.value)
+    const textArea = document.querySelector('#post');
+    let like = 0;
+        showPost(textArea.value, like)
 }
 
-export const deleteOnClickPost = (objNote) =>
-deletePost(objNote.id)
+export const deleteOnClickPost = (objNote) => {
+    if (confirm('De verdad quieres eliminarme?'))
+    return deletePost(objNote.id)
+}
 
 export const editOnClickPost = (objNote, post) =>
 editPost(objNote, post)
@@ -37,4 +40,6 @@ export const signOutOnClick = () => {
     signOut()
         .then(() => changeHash('/signin'))
 }
+export const submitLike = (objNote, reaction) =>
+    likePost(objNote.id, reaction)
 

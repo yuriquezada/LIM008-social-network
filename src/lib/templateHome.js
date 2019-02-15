@@ -1,4 +1,4 @@
-import { submitPost, deleteOnClickPost, editOnClickPost} from './view-controller.js';
+import { submitPost, deleteOnClickPost, editOnClickPost, submitLike} from './view-controller.js';
 import { signOutOnClick } from './view-controller.js';
 
 const itemPost = (objPost) => {
@@ -7,6 +7,8 @@ const itemPost = (objPost) => {
   <span>
     <textarea id="to-edit-${objPost.id}" disabled>${objPost.comment}</textarea>
   </span>
+  <label id="likes">${objPost.reaction}</label>
+  <button id ="btn-like-${objPost.id}">Me gusta</button>
   <button id ="btn-delete-${objPost.id}">Eliminar</button>
   <button id ="btn-edit-${objPost.id}">Editar</button>
   <button id ="btn-save-edit" class= "save-post">Guardar</button>
@@ -15,6 +17,7 @@ const itemPost = (objPost) => {
   .addEventListener( 'click', () => deleteOnClickPost(objPost));
   const editBtn = liElem.querySelector(`#btn-edit-${objPost.id}`);
   const saveEdit = liElem.querySelector('#btn-save-edit');
+  const btnLike = liElem.querySelector(`#btn-like-${objPost.id}`);
   const text = liElem.querySelector(`#to-edit-${objPost.id}`);
   editBtn.addEventListener( 'click', () => {
    text.disabled = false;
@@ -25,6 +28,9 @@ const itemPost = (objPost) => {
     editOnClickPost(objPost.id, text.value);
     liElem.querySelector(`#btn-save-edit`).style.display = 'none'; 
   });
+  btnLike.addEventListener( 'click', () => {
+    submitLike(objPost, objPost.reaction += 1 )
+  } )
   return liElem;
 }
 
@@ -38,8 +44,8 @@ export const home = (posts) => {
       <form action="">
         <textarea name="" id="post" placeholder="Escribe aquí..." cols="80" rows="8"></textarea>
         <select class="button button1">
-          <option value="amigos">Amigos</option>
-          <option value="privado">Privado</option>
+          <option id="" value="publico">Público</option>
+          <option id="" value="privado">Privado</option>
         </select>
         <button id="button-post" class="button button2">Publicar</button>
       </form>

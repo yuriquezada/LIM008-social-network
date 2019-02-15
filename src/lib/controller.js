@@ -15,29 +15,50 @@ export const googleLogIn = () => {
     return firebase.auth().signInWithPopup(provider)
   } 
 
-export const showPost = (post) => {
-    firebase.firestore().collection("users").add({
-    comment: post
+export const showPost = (post, like, privacity) => {
+    firebase.firestore().collection('users').add({
+    comment: post,
+    reaction: like,
+    filter: privacity
   })
 }
 
-export const getPost = (callback) => {  
-  firebase.firestore().collection('users')
+export const getPost = (callback, user) => { 
+  if (user !== null) {
+   return firebase.firestore().collection('users')
     .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() })
       });
       callback(data);      
-    }); 
+    })
+  } else if (user == null) {
+    return firebase.firestore().collection('users')
+    .where('filter', '==', 'publico' )
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() })
+      });
+      callback(data);      
+    })
   }
+  };
+
 
 export const deletePost = (id) =>
-  firebase.firestore().collection("users").doc(id).delete();
+  firebase.firestore().collection('users').doc(id).delete();
 
 export const editPost = (id, text) => {
     return firebase.firestore().collection('users').doc(id).update({
       comment: text,
   });
+};
+
+export const likePost = (id, like) => {
+  return firebase.firestore().collection('users').doc(id).update({
+    reaction: like
+});
 };
  
