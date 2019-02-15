@@ -2,6 +2,7 @@
 
 // configurando firebase mock
 import { MockFirebase, MockFirestore, MockFirebaseSdk } from 'firebase-mock';
+
 const mockauth = new MockFirebase();
 const mockfirestore = new MockFirestore();
 mockfirestore.autoFlush();
@@ -15,7 +16,7 @@ global.firebase = MockFirebaseSdk(
 );
 
 // iniciando tests
-import { logIn, signUp } from "../src/lib/firebase.js";
+import { logIn, signUp } from '../src/lib/controller';
 
 describe('logIn', () => {
   it('debería ser una función', () => {
