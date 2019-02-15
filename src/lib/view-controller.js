@@ -1,6 +1,7 @@
 
-import { logIn, deletePost, signUp, checkEmail, signOut, showPost, googleLogIn, editPost, likePost, getPost, authUser } from "./controller.js";
+import { logIn, deletePost, signUp, signOut, showPost, googleLogIn, editPost, likePost, getPost } from "./controller.js";
 import { changeHash }from "../route.js";
+import { checkEmail, authUser } from "./auth.js";
 export const signInOnSubmit = () => {
     const email = document.querySelector('#email2').value;
     const password = document.querySelector('#password2').value;

@@ -4,8 +4,6 @@ export const logIn = (email, password) =>
 export const signUp = (email, password) =>
     firebase.auth().createUserWithEmailAndPassword(email, password)
 
-export const checkEmail = () => 
-  firebase.auth().currentUser.sendEmailVerification()
 
 export const signOut = () => 
     firebase.auth().signOut()
@@ -16,7 +14,7 @@ export const googleLogIn = () => {
   } 
 
 export const showPost = (post, like, privacity) => {
-    firebase.firestore().collection('users').add({
+    return firebase.firestore().collection('users').add({
     comment: post,
     reaction: like,
     filter: privacity
@@ -33,7 +31,7 @@ export const getPost = (callback, user) => {
       });
       callback(data);      
     })
-  } else if (user == null) {
+  } else {
     return firebase.firestore().collection('users')
     .where('filter', '==', 'publico' )
     .onSnapshot((querySnapshot) => {
@@ -45,9 +43,6 @@ export const getPost = (callback, user) => {
     })
   }
   };
-
-export const authUser = () => 
-firebase.auth().currentUser;
 
 export const deletePost = (id) =>
   firebase.firestore().collection('users').doc(id).delete();

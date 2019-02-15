@@ -42,6 +42,7 @@ body{
 textarea {
 padding: 10px;
 }
+
 button, a{
   font-weight: bold;
   text-decoration: none;
@@ -61,13 +62,10 @@ button, a{
   cursor: pointer;
   background: rgb(2, 110, 124);
 }
-.button:focus{
-  outline: none;
-}
 .google{
+  vertical-align: middle;
   background: rgb(240, 240, 240);
   color: #333333;
-  vertical-align: middle;
 }
 .google:hover{
   background: rgb(216, 216, 216);
@@ -107,10 +105,10 @@ button, a{
  .register button{
    margin-top: 100px
  }
-input:focus{
+
+ .button, input, textarea:focus{
   outline: none;
 }
-
 
 @media(min-width: 500px){
   .inputs-buttons-img{
@@ -190,18 +188,14 @@ textarea {
   border-radius: 5px;
 }
 
-
-.button:focus{
-  outline: none;
-}
-
 .save-post{
   display: none;
 }
 
 ul{
-  text-decoration: none;
+  list-style: none;
 }
+
 footer{
 width: 100%;
 background: white;
