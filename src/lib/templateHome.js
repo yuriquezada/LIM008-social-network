@@ -1,4 +1,37 @@
+<<<<<<< HEAD
 import { submitPost, deleteOnClickPost, editOnClickPost, submitLike} from './view-controller.js';
+=======
+<<<<<<< HEAD
+import { signOut, showPost, readPost} from './firebase.js';
+
+const itemNote = (objNote) => {
+  const liElement = document.createElement('li');
+  liElement.classList.add('mdl-list__item');
+  liElement.innerHTML = `
+    <span class="mdl-list__item-primary-content">
+      <span>${objNote.title}</span>
+    </span>
+    <a class="mdl-list__item-secondary-action" id="btn-deleted-${objNote.id}">
+      <i class="material-icons">delete</i>
+    </a>
+  `;
+  // agregando evento de click al btn eliminar una nota
+  liElement.querySelector(`#btn-deleted-${objNote.id}`)
+    .addEventListener('click', () => deleteNoteOnClick(objNote));
+  return liElement;
+}
+
+
+
+
+
+export const home = (note) => {
+    const viewHome = `
+    <header class="menu-arriba color">
+        <img class="" src="imgs/Logo-P.png" alt="home">
+=======
+import { submitPost, deleteOnClickPost} from './view-controller.js';
+>>>>>>> a4bd5666d1a32046e8822e617ae0b6a0b2eef549
 import { signOutOnClick } from './view-controller.js';
 
 const itemPost = (objPost) => {
@@ -39,6 +72,7 @@ export const home = (posts) => {
     const viewHome = `
     <header class="menu-arriba color">
         <img class="" src="imgs/Logo.png" alt="home">
+>>>>>>> 4bcdf4163204e3badc7653a6ed5b541701a65cf5
     </header>
     <section>
       <form action="">
@@ -49,10 +83,16 @@ export const home = (posts) => {
         </select>
         <button id="button-post" class="button button2">Publicar</button>
       </form>
+<<<<<<< HEAD
+        <div id="table">
+          ${readPost()}
+        </div>
+=======
         <section>
           <ul id="post-list">
           </ul>
         </section>
+>>>>>>> 4bcdf4163204e3badc7653a6ed5b541701a65cf5
     </section>
     <footer id="menu-abajo" class="menu-abajo color">
       <img class="icon-signout" src="imgs/publico.png" alt="privado">
@@ -60,6 +100,23 @@ export const home = (posts) => {
       <a href="#/signIn"><img id="sign-out" src="imgs/salir.png" alt="salir"></a>
     </footer>
     `;
+<<<<<<< HEAD
+    const divElem = document.createElement('div');
+    divElem.setAttribute('id', 'muro');
+    divElem.innerHTML = viewHome;
+    divElem
+     .querySelector('#sign-out')
+     .addEventListener('click', () => { 
+       signOut();     
+     });
+    divElem
+      .querySelector('#button-post')
+      .addEventListener('click', () => { 
+        showPost(); 
+     });
+    return divElem; 
+   }; 
+=======
     // divElem.setAttribute('id', 'muro');
     divElem.innerHTML = viewHome;
     const buttonaddPost = divElem.querySelector('#button-post');
@@ -76,3 +133,4 @@ export const home = (posts) => {
     signOutOnClick()});
     return divElem;
    }
+>>>>>>> 4bcdf4163204e3badc7653a6ed5b541701a65cf5

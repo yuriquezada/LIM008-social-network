@@ -1,5 +1,4 @@
 import { signInOnSubmit, signInWithGoogle } from './view-controller.js';
-import { changeHash } from '../route.js';
 
 export const pageSignIn = () => {
     const formElem = document.createElement('div');
