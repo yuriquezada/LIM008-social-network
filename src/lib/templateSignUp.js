@@ -10,7 +10,7 @@ export const pageSignUp = () => {
                               <input class= "space" id="email" type="email" placeholder="Ingresa e-mail" required>
                               <input class= "space" id="password" type="password" placeholder="Ingresa contraseña" required>
                               <div id="message2"><P>No se ingreso usuario, e-mail o contraseña</P></div>
-                              <button class="button space" id="btn-sign-up">Registrar</button>
+                              <button class="button sign-post-btn color-white space" id="btn-sign-up">Registrar</button>
                         </div>
                   `;
     

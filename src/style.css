@@ -38,11 +38,18 @@ body{
   color: red;
   margin-bottom: 10px;
 }
-
 textarea {
-padding: 10px;
+  resize: none;  /* deshabilitar la posibilidad de redimiensionar */
+  padding: 10px;
+  font-size: 14px;
+  color: #1f1f1f;
+  border-radius: 20px;
+  margin: 30px;
 }
-
+textarea[disabled] {
+  background: white;
+  border:none;
+}
 button, a{
   font-weight: bold;
   text-decoration: none;
@@ -57,24 +64,34 @@ button, a{
   width: 100%;
   margin-bottom: 20px;
  }
-
-.button:hover{
-  cursor: pointer;
-  background: rgb(2, 110, 124);
-}
 .google{
   vertical-align: middle;
   background: rgb(240, 240, 240);
   color: #333333;
 }
+.sign-post-btn{
+  background: #1698A0;
+}
 .google:hover{
   background: rgb(216, 216, 216);
+}
+.delete-btn{
+  background: #c90e0e;
+}
+.edit-btn{
+  background: #69BFE3;
+  color: #333333;
+}
+.like-btn{
+  background: none;
+}
+.select-btn{
+  border: 9px double #990000;
 }
 .pets{
   width: 95%;
   margin-top: 31px
 }
-
 .register{
   background-image: url("./imgs/background-register.jpg");
   background-position: center;
@@ -93,23 +110,19 @@ button, a{
   font-size: 18px; 
   color:rgba(255, 255, 255, 0.7);
 }
-
 .register input{
   color: white;
   background-color: rgba(74, 152, 255, 0);
   border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.7);
   margin-top: 40px;
-
  }
  .register button{
    margin-top: 100px
  }
-
  .button, input, textarea:focus{
   outline: none;
 }
-
 @media(min-width: 500px){
   .inputs-buttons-img{
     margin: auto;
@@ -124,7 +137,6 @@ button, a{
     min-width: 500px;
   }
 }
-
 @media(max-width: 1200px) and (min-width: 500px){
 
     .inputs-buttons{
@@ -167,16 +179,12 @@ button, a{
   width: 100%;
   background: #ffffff;
 }
-textarea {
-  /* deshabilitar la posibilidad de redimiensionar */
-  resize: none;  
-  border-radius: 20px;
-  margin: 30px;
+.wall-post{
+  border-top: #E1E1E1 5px solid;
+  padding-bottom: 20px;
 }
 .button {
-  background-color: #1698A0;
   border: none;
-  color: white;
   padding: 8px 10px;
   text-align: center;
   text-decoration: none;
@@ -187,15 +195,15 @@ textarea {
   cursor: pointer;
   border-radius: 5px;
 }
-
+.color-white{
+  color: white;
+}
 .save-post{
   display: none;
 }
-
 ul{
   list-style: none;
 }
-
 footer{
 width: 100%;
 background: white;

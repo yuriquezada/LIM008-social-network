@@ -3,15 +3,16 @@ import { signOutOnClick } from './view-controller.js';
 
 const itemPost = (objPost) => {
   const liElem = document.createElement('li');
+  liElem.classList.add("wall-post");
   liElem.innerHTML = `
   <span>
     <textarea id="to-edit-${objPost.id}" disabled>${objPost.comment}</textarea>
   </span>
-  <label id="likes">${objPost.reaction}</label>
-  <button id ="btn-like-${objPost.id}"><img src="imgs/paws.png" /></button>
-  <button id ="btn-delete-${objPost.id}">Eliminar</button>
-  <button id ="btn-edit-${objPost.id}">Editar</button>
-  <button id ="btn-save-edit" class= "save-post">Guardar</button>
+  <label id="likes"><img src="imgs/paws.png" alt="like"/>${objPost.reaction}</label>
+  <button id ="btn-like-${objPost.id}" class = "like-btn">Me gusta</button>
+  <button id ="btn-delete-${objPost.id}" class = "button delete-btn color-white">Eliminar</button>
+  <button id ="btn-edit-${objPost.id}" class = "button edit-btn">Editar</button>
+  <button id ="btn-save-edit" class= "button save-post">Guardar</button>
   `;
   liElem.querySelector(`#btn-delete-${objPost.id}`)
   .addEventListener( 'click', () => deleteOnClickPost(objPost));
@@ -44,11 +45,11 @@ export const home = (posts) => {
     <section>
       <form action="">
         <textarea name="" id="post" placeholder="Escribe aquí..." cols="80" rows="8"></textarea>
-        <select id="privacity" class="button">
+        <select id="privacity" class="button select-btn">
           <option id="public" value="publico">Público</option>
           <option id="private" value="privado">Privado</option>
         </select>
-        <button id="button-post" class="button">Publicar</button>
+        <button id="button-post" class="button sign-post-btn color-white">Publicar</button>
       </form>
         <section>
           <ul id="post-list">
