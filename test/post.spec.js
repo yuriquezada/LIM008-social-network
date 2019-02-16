@@ -71,14 +71,6 @@ describe('likePost', () => {
     })
 })
 
-
-
-
-
-
-
-
-
 describe('deletePost', () => {
     it('Deberia de poder eliminar una post', (done) => {
       return deletePost('abc123')
