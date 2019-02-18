@@ -51,7 +51,9 @@ Los usuarios a los que este proyecto va dirigido son los dueños de las mascotas
 ![Sin Título](https://user-images.githubusercontent.com/45071851/52926433-b66c9a80-3303-11e9-9254-a3de7caa783f.jpg)
 
 * #### Prototipo de alta fidelidad 
-zpl.io/awWPk01
+##### Versión Móvil:
+[Figma](zpl.io/awWPk01)
+
 ![Sin Título](https://user-images.githubusercontent.com/45071851/52926450-cab09780-3303-11e9-86e6-f639893407b5.png)
 ![Sin Título](https://user-images.githubusercontent.com/45071851/52926462-d7cd8680-3303-11e9-8f1b-c999079c78c9.png)
 ![Sin Título](https://user-images.githubusercontent.com/45071851/52926474-e9169300-3303-11e9-88e5-11ab36739eed.jpg)
