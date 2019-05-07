@@ -1,28 +1,23 @@
-import { signUp } from './firebase.js';
+import { signUpOnSubmit } from './view-controller.js';
 
 export const pageSignUp = () => {
-    const template = `<form class="register">
+    const formElemt2 = document.createElement('form');
+    const template = `
                         <img src="imgs/mini-logo.png" alt="pets">
                         <div class="inputs-buttons">
                               <h2>Crea tu cuenta</h2>
-                              <input class= "space" id="usser" type="text" placeholder="Elige tu usuario" required>
+                              <input class= "space" id="name" type="text" placeholder="Elige tu usuario" required>
                               <input class= "space" id="email" type="email" placeholder="Ingresa e-mail" required>
                               <input class= "space" id="password" type="password" placeholder="Ingresa contraseña" required>
                               <div id="message2"><P>No se ingreso usuario, e-mail o contraseña</P></div>
-                              <button class="button space" id= "btn-sign-up">Registrar</button>
+                              <button class="button space" id="btn-sign-up">Registrar</button>
                         </div>
-                  </form>`
-    const element2 = document.createElement('div');
-    element2.innerHTML = template;
-
-    element2 
-     .querySelector('#btn-sign-up')
-     .addEventListener('click', event => {
-           event.preventDefault();
-          const email = document.querySelector("#email").value;
-          const password = document.querySelector("#password").value;
-            signUp(email, password);
-         });
-
-      return element2;
+                  `;
+    
+      formElemt2.classList.add('register')
+      formElemt2.innerHTML = template;
+      const btnRegister = formElemt2.querySelector('#btn-sign-up');
+      btnRegister.addEventListener( 'click', () => {
+      signUpOnSubmit()});
+      return formElemt2;
 };

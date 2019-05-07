@@ -1,8 +1,12 @@
-import { logIn, googleLogIn } from './firebase.js';
-import { changeHash } from '../route.js';
+import { signInOnSubmit, signInWithGoogle } from './view-controller.js';
 
 export const pageSignIn = () => {
+<<<<<<< HEAD
     const template = `<form class="login">
+=======
+    const formElem = document.createElement('div');
+    const formSignIn = `
+>>>>>>> 0cf92feb2dca0a3eed72be09dfaa25ad1b2de85f
                         <img class="logo" src="imgs/Logo.png" alt="pets">
                         <section class="inputs-buttons-img">
                         <div class="inputs-buttons">
@@ -14,35 +18,18 @@ export const pageSignIn = () => {
                         </div>
                         <div class="pets-signup">
                             <img class="pets" src="imgs/pets.png" alt="pets">
-                            <p>¿No tienes cuenta? <a id="registrate" href="#">Regístrate</a></p>  
+                            <p>¿No tienes cuenta? <a id="registrate" href="#/signup">Regístrate</a></p>  
                         </div>
                         </section>
-                    </form>`
-    const element = document.createElement('div');
-     element.innerHTML = template;
-     element 
-     .querySelector('#btn-log-in')
-     .addEventListener('click', event => {
-           event.preventDefault();
-          const email2 = element.querySelector("#email2").value;
-          const password2 = element.querySelector("#password2").value;
-            logIn(email2, password2); 
-         });
-    element 
-    .querySelector('#google-button')
-    .addEventListener('click', event => {
-        event.preventDefault();
-        googleLogIn();
-        });
+                    `;
     
-    element
-    .querySelector('#registrate')
-    .addEventListener('click', event => {
-        event.preventDefault();
-        changeHash('/signup')
-        });
-
-    //  const container = document.getElementById('container');
-    //  container.appendChild(element); 
-     return element; 
+    formElem.classList.add('login')
+    formElem.innerHTML = formSignIn;
+    const btnSignIn = formElem.querySelector('#btn-log-in');
+    const btnSignInWithGoogle = formElem.querySelector('#google-button');
+    btnSignIn.addEventListener( 'click', () => {
+        signInOnSubmit()});
+    btnSignInWithGoogle.addEventListener( 'click', () => {
+        signInWithGoogle()});
+     return formElem; 
   };
